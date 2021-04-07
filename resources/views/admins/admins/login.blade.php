@@ -43,7 +43,7 @@
                                     </div>
                                     <form class="user" action="{{ route('admin.login')}}" method="POST">@csrf
                                         <div class="form-group">
-                                            <input name="email" type="email" class="form-control form-control-user"
+                                            <input value="{{old('email')}}" name="email" type="email" class="form-control form-control-user"
                                                 id="email" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">
                                         </div>

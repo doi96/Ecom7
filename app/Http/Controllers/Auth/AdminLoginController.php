@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminLoginController extends Controller
 {
@@ -23,7 +24,6 @@ class AdminLoginController extends Controller
       // Validate the form data
       $this->validate($request, [
         'email'   => 'required|email',
-        'password' => 'required|min:6'
       ]);
       // Attempt to log the user in
       if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
@@ -31,12 +31,13 @@ class AdminLoginController extends Controller
         return redirect()->intended(route('admin.dashboard'));
       } 
       // if unsuccessful, then redirect back to the login with the form data
+      Session::put('error_message','Email or Password is not correct!');
       return redirect()->back()->withInput($request->only('email', 'remember'));
     }
     
     public function logout()
     {
         Auth::guard('admin')->logout();
-        return redirect('/admin');
+        return redirect()->route('admin.login');
     }
 }
