@@ -31,6 +31,13 @@ Route::prefix('admin')->group(function() {
 
         Route::get('/', 'Auth\AdminController@index')->name('admin.dashboard');
 
+        //Category
+        Route::get('category', 'CategoryController@index')->name('admin.category.index');
+        Route::get('create-category', 'CategoryController@create')->name('admin.category.create');
+        Route::post('store-category', 'CategoryController@store')->name('admin.category.store');
+        Route::get('delete-category/{id}', 'CategoryController@destroy')->name('admin.category.destroy');
+        Route::post('edit-category/{id}', 'CategoryController@edit')->name('admin.category.edit');
+
     });
 
 });

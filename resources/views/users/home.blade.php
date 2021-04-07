@@ -378,10 +378,12 @@
 				<div class="wrap-products">
 					<div class="wrap-product-tab tab-style-1">
 						<div class="tab-control">
-							<a href="#fashion_1a" class="tab-control-item active">Smartphone</a>
-							<a href="#fashion_1b" class="tab-control-item">Watch</a>
+							@foreach ($getCategories as $getCategory)
+								<a href="#fashion_1a" class="tab-control-item active">{{$getCategory->name}}</a>
+							@endforeach
+							{{-- <a href="#fashion_1b" class="tab-control-item">Watch</a>
 							<a href="#fashion_1c" class="tab-control-item">Laptop</a>
-							<a href="#fashion_1d" class="tab-control-item">Tablet</a>
+							<a href="#fashion_1d" class="tab-control-item">Tablet</a> --}}
 						</div>
 						<div class="tab-contents">
 
