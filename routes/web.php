@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('users.home');
 });
 
 Auth::routes();
@@ -30,7 +30,7 @@ Route::prefix('admin')->group(function() {
     Route::middleware('auth:admin')->group(function(){
 
         Route::get('/', 'Auth\AdminController@index')->name('admin.dashboard');
-        
+
     });
 
 });
