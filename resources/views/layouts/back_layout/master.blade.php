@@ -35,7 +35,15 @@
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
-            @yield('content')
+            <div id="content">
+                <!-- Topbar -->
+                @include('layouts.back_layout.header')
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                @yield('content')
+                <!-- /.container-fluid -->
+            </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -67,7 +75,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="{{ route('admin.logout') }}">Logout</a>
                 </div>
             </div>
         </div>
