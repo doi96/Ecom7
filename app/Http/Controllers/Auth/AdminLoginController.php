@@ -31,7 +31,7 @@ class AdminLoginController extends Controller
         return redirect()->intended(route('admin.dashboard'));
       } 
       // if unsuccessful, then redirect back to the login with the form data
-      Session::put('error_message','Email or Password is not correct!');
+      Session::flash('error_message','Email or Password is not correct!');
       return redirect()->back()->withInput($request->only('email', 'remember'));
     }
     
