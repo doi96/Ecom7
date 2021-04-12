@@ -20,4 +20,6 @@ class AdminController extends Controller
     {
         return view('admins.admins.dashboard');
     }
+
+    
 }
