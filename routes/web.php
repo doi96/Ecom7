@@ -52,6 +52,12 @@ Route::prefix('admin')->group(function() {
         Route::post('admin-slider-edit/{id}','Auth\AdminController@editSlider')->name('admin.slider.edit');
         Route::get('admin-slider-delete/{id}','Auth\AdminController@deleteSlider')->name('admin.slider.delete');
 
+        //Product route
+        Route::get('admin-product','ProductController@index')->name('admin.product');
+        Route::get('admin-product-create','ProductController@createProduct')->name('admin.product.create');
+        Route::get('admin-product-read/{id}','ProductController@readProduct')->name('admin.product.read');
+        Route::post('admin-product-store','ProductController@storeProduct')->name('admin.product.store');
+
     });
 
 });
