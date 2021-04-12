@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -28,7 +29,9 @@ class AdminLoginController extends Controller
       // Attempt to log the user in
       if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
         // if successful, then redirect to their intended location
-        return redirect()->intended(route('admin.dashboard'));
+        $admin = Admin::where('id',auth()->user()->id)->with('adminProfiles')->fisrt();
+        // dd($admin);
+        return redirect()->intended(route('admin.dashboard'))->with(compact('admin'));
       } 
       // if unsuccessful, then redirect back to the login with the form data
       Session::flash('error_message','Email or Password is not correct!');
