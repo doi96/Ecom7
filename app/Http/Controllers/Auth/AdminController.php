@@ -41,7 +41,7 @@ class AdminController extends Controller
    
         $request->image->move(public_path('images/back_images/admin_avatar'), $imageName);
         
-        $profileAdmin = AdminProfile::where('admin_id',auth()->user()->id)->update(['avatar'=>$imageName]);
+        $profileAdmin = Admin::where('id',auth()->user()->id)->update(['avatar'=>$imageName]);
         
         return back();
     }
