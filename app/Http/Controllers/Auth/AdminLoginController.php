@@ -31,7 +31,7 @@ class AdminLoginController extends Controller
         // if successful, then redirect to their intended location
         // $admin = Admin::where('id',auth()->user()->id)->with('adminProfiles')->fisrt();
         // dd($admin);
-        return redirect()->intended(route('admin.dashboard'))->with(compact('admin'));
+        return redirect()->intended(route('admin.dashboard'));
       } 
       // if unsuccessful, then redirect back to the login with the form data
       Session::flash('error_message','Email or Password is not correct!');
