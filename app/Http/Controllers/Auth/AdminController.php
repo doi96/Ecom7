@@ -6,6 +6,7 @@ use App\AdminProfile;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -31,6 +32,16 @@ class AdminController extends Controller
         return view('admins.admins.profile')->with(compact('admin'));
     }
 
+    public function editProfile(Request $request)
+    {
+        $data = $request->all();
+        $admin = Admin::where('id',auth()->user()->id)->update(['name'=>$data['name'],'email'=>$data['email']]);
+        $profileAdmin = AdminProfile::where('admin_id',auth()->user()->id)->update(['full_name'=>$data['full_name'],'phone_number'=>$data['phone'],'address'=>$data['address']]);
+
+        Session::flash('success_message','Your profile has been updated successfully!');
+        return back();
+    }
+
     public function avatar(Request $request)
     {
         $request->validate([
@@ -43,6 +54,7 @@ class AdminController extends Controller
         
         $profileAdmin = Admin::where('id',auth()->user()->id)->update(['avatar'=>$imageName]);
         
+        Session::flash('success_message','Your avatar has been updated successfully!');
         return back();
     }
 }
