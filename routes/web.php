@@ -41,6 +41,9 @@ Route::prefix('admin')->group(function() {
         //Admin profile
         Route::get('admin-profile','Auth\AdminController@profile')->name('admin.profile');
         Route::post('admin-avatar','Auth\AdminController@avatar')->name('admin.avatar');
+        Route::post('admin-edit-profile','Auth\AdminController@editProfile')->name('admin.edit.profile');
+        Route::get('admin-edit-password','Auth\AdminController@editPassword')->name('admin.edit.password');
+        Route::post('admin-change-password','Auth\AdminController@changePassword')->name('admin.change.password');
 
     });
 
