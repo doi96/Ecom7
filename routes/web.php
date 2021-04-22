@@ -38,6 +38,10 @@ Route::prefix('admin')->group(function() {
         Route::get('delete-category/{id}', 'CategoryController@destroy')->name('admin.category.destroy');
         Route::post('edit-category/{id}', 'CategoryController@edit')->name('admin.category.edit');
 
+        //Admin profile
+        Route::get('admin-profile','Auth\AdminController@profile')->name('admin.profile');
+        Route::post('admin-avatar','Auth\AdminController@avatar')->name('admin.avatar');
+
     });
 
 });
