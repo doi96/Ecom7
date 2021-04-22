@@ -21,7 +21,7 @@
                                     <div class="card-title mb-4">
                                         <div class="d-flex justify-content-start">
                                             <div class="image-container">
-                                                <img src="{{ asset('images/back_images/admin_avatar/'.$admin->adminProfiles->avatar) }}" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
+                                                <img src="{{ asset('images/back_images/admin_avatar/'.$admin->avatar) }}" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
                                                 <div class="middle">
                                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#images-{{ $admin->id }}">
                                                             <i class="fa fa-wrench" aria-hidden="true"></i> Change avatar
