@@ -29,7 +29,7 @@ class AdminLoginController extends Controller
       // Attempt to log the user in
       if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
         // if successful, then redirect to their intended location
-        $admin = Admin::where('id',auth()->user()->id)->with('adminProfiles')->fisrt();
+        // $admin = Admin::where('id',auth()->user()->id)->with('adminProfiles')->fisrt();
         // dd($admin);
         return redirect()->intended(route('admin.dashboard'))->with(compact('admin'));
       } 
