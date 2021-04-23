@@ -17,8 +17,9 @@
                                     <li><a href="about.html">about</a></li>
                                     <li class="hot"><a href="#">Product</a>
                                         <ul class="submenu">
-                                            <li><a href="shop.html"> Product list</a></li>
-                                            <li><a href="product_details.html"> Product Details</a></li>
+                                            @foreach ($getCategories as $getCategory)
+                                                <li><a href="product_details.html"> {{ $getCategory->name }}</a></li>
+                                            @endforeach
                                         </ul>
                                     </li>
                                     <li><a href="blog.html">Blog</a>
