@@ -49,6 +49,8 @@ Route::prefix('admin')->group(function() {
         Route::get('admin-slider','Auth\AdminController@slider')->name('admin.slider');
         Route::get('admin-slider-create','Auth\AdminController@createSlider')->name('admin.slider.create');
         Route::post('admin-slider-store','Auth\AdminController@storeSlider')->name('admin.slider.store');
+        Route::post('admin-slider-edit/{id}','Auth\AdminController@editSlider')->name('admin.slider.edit');
+        Route::get('admin-slider-delete/{id}','Auth\AdminController@deleteSlider')->name('admin.slider.delete');
 
     });
 

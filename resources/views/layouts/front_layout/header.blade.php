@@ -6,13 +6,13 @@
                     <div class="menu-wrapper">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="{{ asset('images/front_images/GCapvn.png') }}" alt="" style="width: 45%"></a>
+                            <a href="{{ route('user.home') }}"><img src="{{ asset('images/front_images/GCapvn.png') }}" alt="" style="width: 45%"></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu d-none d-lg-block">
                             <nav>                                                
                                 <ul id="navigation">  
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="{{ route('user.home') }}">Home</a></li>
                                     <li><a href="shop.html">shop</a></li>
                                     <li><a href="about.html">about</a></li>
                                     <li class="hot"><a href="#">Product</a>
