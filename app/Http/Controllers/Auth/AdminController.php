@@ -126,4 +126,39 @@ class AdminController extends Controller
         Session::flash('success_message','Slide has been added successfully!');
         return redirect()->route('admin.slider');
     }
+
+    public function editSlider(Request $request,$id)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'link' => 'required'
+        ]);
+        if (isset($request->image)) {
+            $imageName = time().'.'.$request->image->extension();  
+        
+            $request->image->move(public_path('images/front_images/slider'), $imageName);
+        }else {
+            $getImage = DB::table('slides')->where('id',$id)->first();
+            $imageName = $getImage->image;
+        }
+
+        $data = $request->all();
+        $status = isset($data['status'])?$data['status'] : 0 ;
+
+        $slides = DB::table('slides')->where('id',$id)->update(['title'=>$data['title'],'description'=>$data['description'],'image'=>$imageName,'link'=>$data['link'],'status'=>$status]);
+
+        Session::flash('success_message','Slide has been updated successfully!');
+
+        return back();
+    }
+
+    public function deleteSlider($id)
+    {
+        $slide = DB::table('slides')->where('id',$id)->delete();
+        Session::flash('success_message','Slide has been deleted sucessfully!');
+
+        return back();
+    }
 }

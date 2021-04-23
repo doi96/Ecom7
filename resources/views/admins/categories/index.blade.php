@@ -11,8 +11,11 @@
             <a type="button" class="btn btn-primary"><i class="fa fa-file" aria-hidden="true"></i> Export Excel</a>
             <a href="{{ route('admin.category.create') }}" type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Add Category</a> 
         </div>
-        @if(Session::has('success_message'))
-            <p class="alert alert-success">{{ Session::get('success_message') }}</p>
+        @if (Session::has('success_message'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ Session::get('success_message') }}</strong>
+        </div>
         @endif
         <div class="card-body">
             <div class="table-responsive">
