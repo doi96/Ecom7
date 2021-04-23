@@ -6,6 +6,7 @@ use App\AdminProfile;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 
@@ -90,5 +91,39 @@ class AdminController extends Controller
             return back();
         }
         
+    }
+
+    public function slider()
+    {
+        $slides = DB::table('slides')->get();
+        // dd($slides);
+        return view('admins.slides.index')->with(compact('slides'));
+    }
+
+    public function createSlider()
+    {
+        return view('admins.slides.create_slide');
+    }
+
+    public function storeSlider(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'link' => 'required'
+        ]);
+
+        $imageName = time().'.'.$request->image->extension();  
+        
+        $request->image->move(public_path('images/front_images/slider'), $imageName);
+
+        $data = $request->all();
+        $status = isset($data['status'])?$data['status'] : 0 ;
+
+        $slides = DB::table('slides')->insert(['title'=>$data['title'],'description'=>$data['description'],'image'=>$imageName,'link'=>$data['link'],'status'=>$status]);
+        
+        Session::flash('success_message','Slide has been added successfully!');
+        return redirect()->route('admin.slider');
     }
 }

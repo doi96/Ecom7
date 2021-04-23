@@ -41,6 +41,7 @@
 
     <main>
         <!--? slider Area Start -->
+        @foreach ($slides as $slide)
         <div class="slider-area ">
             <div class="slider-active">
                 <!-- Single Slider -->
@@ -49,47 +50,28 @@
                         <div class="row justify-content-between align-items-center">
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
                                 <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay=".4s" data-duration="2000ms">Select Your New Perfect Style</h1>
-                                    <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is aute irure.</p>
+                                    <h1 data-animation="fadeInLeft" data-delay=".4s" data-duration="2000ms">{{ $slide->title }}</h1>
+                                    <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">{{ $slide->description }}</p>
                                     <!-- Hero-btn -->
                                     <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s" data-duration="2000ms">
-                                        <a href="industries.html" class="btn hero-btn">Shop Now</a>
+                                        <a href="{{$slide->link}}" class="btn hero-btn">View now</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
                                 <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                    <img src="{{ asset('images/front_images/umibudou.png') }}" alt="" class=" heartbeat">
+                                    <img src="{{ asset('images/front_images/slider/'.$slide->image) }}" alt="" class=" heartbeat">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Single Slider -->
-                <div class="single-slider slider-height d-flex align-items-center slide-bg">
-                    <div class="container">
-                        <div class="row justify-content-between align-items-center">
-                            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
-                                <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay=".4s" data-duration="2000ms">Select Your New Perfect Style</h1>
-                                    <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is aute irure.</p>
-                                    <!-- Hero-btn -->
-                                    <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s" data-duration="2000ms">
-                                        <a href="industries.html" class="btn hero-btn">Shop Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
-                                <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                    <img src="{{ asset('images/front_images/rong-nho-bien-vua-rong-nho.jpg') }}" alt="" class=" heartbeat">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
+        @endforeach
         <!-- slider Area End-->
+
         <!-- ? New Product Start -->
         <section class="new-product-area section-padding30">
             <div class="container">

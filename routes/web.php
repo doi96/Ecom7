@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('users.home');
-});
+// User routing
+
+Route::get('/','HomeController@index')->name('user.home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')->group(function() {
     Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.showLoginForm');
@@ -44,6 +44,11 @@ Route::prefix('admin')->group(function() {
         Route::post('admin-edit-profile','Auth\AdminController@editProfile')->name('admin.edit.profile');
         Route::get('admin-edit-password','Auth\AdminController@editPassword')->name('admin.edit.password');
         Route::post('admin-change-password','Auth\AdminController@changePassword')->name('admin.change.password');
+
+        //Slide management
+        Route::get('admin-slider','Auth\AdminController@slider')->name('admin.slider');
+        Route::get('admin-slider-create','Auth\AdminController@createSlider')->name('admin.slider.create');
+        Route::post('admin-slider-store','Auth\AdminController@storeSlider')->name('admin.slider.store');
 
     });
 
