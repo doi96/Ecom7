@@ -87,7 +87,7 @@
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                 <div class="single-new-pro mb-30 text-center">
                                     <div class="product-img">
-                                        <img src="{{ asset('images/front_images/product/'.$getNewProduct->image) }}" alt="">
+                                        <img src="{{ asset('images/front_images/product/medium/'.$getNewProduct->image) }}" alt="">
                                     </div>
                                     <div class="product-caption">
                                         <h3><a href="product_details.html">{{ $getNewProduct->name }}</a></h3>
@@ -150,7 +150,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                             <div class="single-popular-items mb-50 text-center">
                                 <div class="popular-img">
-                                    <img src="{{ asset('images/front_images/product/'.$getFeatureProduct->image) }}" alt="">
+                                    <img src="{{ asset('images/front_images/product/small/'.$getFeatureProduct->image) }}" alt="">
                                     <div class="img-cap">
                                         <a href="google.com"><span>Add to cart</span></a>
                                     </div>
@@ -229,37 +229,7 @@
             </div>
         </div>
         <!-- Watch Choice  End-->
-        <!--? Shop Method Start-->
-        <div class="shop-method-area">
-            <div class="container">
-                <div class="method-wrapper">
-                    <div class="row d-flex justify-content-between">
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-method mb-40">
-                                <i class="ti-package"></i>
-                                <h6>Free Shipping Method</h6>
-                                <p>aorem ixpsacdolor sit ameasecur adipisicing elitsf edasd.</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-method mb-40">
-                                <i class="ti-unlock"></i>
-                                <h6>Secure Payment System</h6>
-                                <p>aorem ixpsacdolor sit ameasecur adipisicing elitsf edasd.</p>
-                            </div>
-                        </div> 
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-method mb-40">
-                                <i class="ti-reload"></i>
-                                <h6>Secure Payment System</h6>
-                                <p>aorem ixpsacdolor sit ameasecur adipisicing elitsf edasd.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Shop Method End-->
+        
     </main>
 	
     @include('layouts.front_layout.footer')

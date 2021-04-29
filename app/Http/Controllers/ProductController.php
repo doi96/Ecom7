@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use phpDocumentor\Reflection\Types\Null_;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -35,8 +36,18 @@ class ProductController extends Controller
         ]);
 
         $imageName = time().'.'.$request->image->extension();  
-        
-        $request->image->move(public_path('images/front_images/product'), $imageName);
+        $image_tmp = $request->file('image');
+
+        //move image to folder
+        $large_image_path = 'images/front_images/product/large/'.$imageName;
+        $medium_image_path = 'images/front_images/product/medium/'.$imageName;
+        $small_image_path = 'images/front_images/product/small/'.$imageName;
+        // Resize Image code
+        Image::make($image_tmp)->save($large_image_path);
+        Image::make($image_tmp)->resize(720,720)->save($medium_image_path);
+        Image::make($image_tmp)->resize(360,360)->save($small_image_path);
+        // Store image name in products table
+
 
         if (isset($request->video)) {
             $videoName = time().'.'.$request->video->extension();  
@@ -66,4 +77,62 @@ class ProductController extends Controller
         // dd($product);
         return view('admins.products.read_product')->with(compact('product'));
     }
+
+    public function editProduct($id)
+    {
+        $product = Product::where('id',$id)->first();
+        $categories = Category::get();
+        return view('admins.products.edit_product')->with(compact('product','categories'));
+    }
+
+    public function updateProduct($id, Request $request)
+    {
+        $request->validate([
+            'product_name' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'price' => 'required',
+            'video' => 'mimes:mpeg,ogg,mp4,webm,3gp,mov,flv,avi,wmv,ts',
+        ]);
+
+        $data = $request->all();
+
+        // add image
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();  
+            $image_tmp = $request->file('image');
+
+            //move image to folder
+            $large_image_path = 'images/front_images/product/large/'.$imageName;
+            $medium_image_path = 'images/front_images/product/medium/'.$imageName;
+            $small_image_path = 'images/front_images/product/small/'.$imageName;
+            // Resize Image code
+            Image::make($image_tmp)->save($large_image_path);
+            Image::make($image_tmp)->resize(720,720)->save($medium_image_path);
+            Image::make($image_tmp)->resize(360,360)->save($small_image_path);
+            // Store image name in products table
+        }else {
+            $imageName = Product::where('id',$id)->select('image')->first();
+        }
+
+        // add video
+        if (isset($request->video)) {
+            $videoName = time().'.'.$request->video->extension();  
+            $request->video->move(public_path('videos/front_videos/products'), $videoName);
+        }else {
+            $videoName = Product::where('id',$id)->select('video')->first();
+        }
+
+        $status = isset($data['status'])?$data['status']:0;
+        $feature = isset($data['feature'])?$data['feature']:0;
+
+        $product = Product::where('id',$id)->update(['name'=>$data['product_name'],'description'=>$data['description'],'category_id'=>$data['category_id'],'price'=>$data['price'],'image'=>$imageName,'video'=>$videoName,'status'=>$status,'feature'=>$feature]);
+        
+        Session::flash('success_message','Product has been updated successfully!');
+        return redirect()->route('admin.product');
+
+
+    }
+
 }
