@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use phpDocumentor\Reflection\Types\Null_;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -35,8 +36,18 @@ class ProductController extends Controller
         ]);
 
         $imageName = time().'.'.$request->image->extension();  
-        
-        $request->image->move(public_path('images/front_images/product'), $imageName);
+        $image_tmp = $request->file('image');
+
+        //move image to folder
+        $large_image_path = 'images/front_images/product/large/'.$imageName;
+        $medium_image_path = 'images/front_images/product/medium/'.$imageName;
+        $small_image_path = 'images/front_images/product/small/'.$imageName;
+        // Resize Image code
+        Image::make($image_tmp)->save($large_image_path);
+        Image::make($image_tmp)->resize(720,720)->save($medium_image_path);
+        Image::make($image_tmp)->resize(360,360)->save($small_image_path);
+        // Store image name in products table
+
 
         if (isset($request->video)) {
             $videoName = time().'.'.$request->video->extension();  
