@@ -87,7 +87,7 @@
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                 <div class="single-new-pro mb-30 text-center">
                                     <div class="product-img">
-                                        <img src="{{ asset('images/front_images/product/'.$getNewProduct->image) }}" alt="">
+                                        <img src="{{ asset('images/front_images/product/medium/'.$getNewProduct->image) }}" alt="">
                                     </div>
                                     <div class="product-caption">
                                         <h3><a href="product_details.html">{{ $getNewProduct->name }}</a></h3>
@@ -150,7 +150,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                             <div class="single-popular-items mb-50 text-center">
                                 <div class="popular-img">
-                                    <img src="{{ asset('images/front_images/product/'.$getFeatureProduct->image) }}" alt="">
+                                    <img src="{{ asset('images/front_images/product/small/'.$getFeatureProduct->image) }}" alt="">
                                     <div class="img-cap">
                                         <a href="google.com"><span>Add to cart</span></a>
                                     </div>

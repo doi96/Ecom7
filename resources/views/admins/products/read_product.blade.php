@@ -89,7 +89,7 @@
                                 <label style="font-weight:bold;">Image</label>
                             </div>
                             <div class="col-md-8 col-6">
-                                <img src="{{ asset('images/front_images/product/'.$product->image) }}" style="width: 500px;">
+                                <img src="{{ asset('images/front_images/product/small/'.$product->image) }}">
                             </div>
                         </div>
                         <hr />
