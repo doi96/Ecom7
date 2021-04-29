@@ -6,7 +6,7 @@
                     <div class="menu-wrapper">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="{{ route('user.home') }}"><img src="{{ asset('images/front_images/GCapvn.png') }}" alt="" style="width: 45%"></a>
+                            <a href="{{ route('user.home') }}"><img src="{{ asset('images/front_images/logo.png') }}" alt="" style="width: 264px; high: 48px;"></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu d-none d-lg-block">
