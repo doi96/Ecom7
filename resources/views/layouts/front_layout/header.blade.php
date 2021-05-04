@@ -14,7 +14,7 @@
                                 <ul id="navigation">  
                                     <li><a href="{{ route('user.home') }}">Home</a></li>
                                     <li><a href="about.html">about</a></li>
-                                    <li class="hot"><a href="#">Product</a>
+                                    <li class="hot"><a href="{{ route('product.all') }}">Product</a>
                                         <ul class="submenu">
                                             @foreach ($getCategories as $getCategory)
                                                 <li><a href="{{ route('product.category',$getCategory->id) }}"> {{ $getCategory->name }}</a></li>
