@@ -10,9 +10,10 @@ class UserController extends Controller
 {
     public function getProductbyCategory($id)
     {
-        $getCategories = Category::where('status',1)->get();
+        $getCategories = Category::where('status',1)->with('products')->get();
         $getProducts = Product::where('category_id',$id)->where('status',1)->get();
-        
-        return view('users.products.list_product')->with(compact('getProducts','getCategories'));
+        $IdActive = $id;
+        // dd($getCategories);
+        return view('users.products.list_product')->with(compact('getProducts','getCategories','IdActive'));
     }
 }
