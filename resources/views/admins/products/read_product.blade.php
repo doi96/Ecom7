@@ -112,7 +112,7 @@
         </div>
 
         <div class="card-footer">
-            <a type="button" class="btn btn-primary" href="">Edit</a>
+            <a type="button" class="btn btn-primary" href="{{ route('admin.product.edit',$product->id) }}">Edit</a>
         </div>
     </div>
 

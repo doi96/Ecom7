@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Auth;
 // User routing
 
 Route::get('/','HomeController@index')->name('user.home');
+Route::get('product-category/{id}','UserController@getProductbyCategory')->name('product.category');
+
 
 Auth::routes();
 
@@ -56,6 +58,8 @@ Route::prefix('admin')->group(function() {
         Route::get('admin-product','ProductController@index')->name('admin.product');
         Route::get('admin-product-create','ProductController@createProduct')->name('admin.product.create');
         Route::get('admin-product-read/{id}','ProductController@readProduct')->name('admin.product.read');
+        Route::get('admin-product-edit/{id}','ProductController@editProduct')->name('admin.product.edit');
+        Route::post('admin-product-update/{id}','ProductController@updateProduct')->name('admin.product.update');
         Route::post('admin-product-store','ProductController@storeProduct')->name('admin.product.store');
 
     });
