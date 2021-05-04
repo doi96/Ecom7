@@ -56,7 +56,10 @@
                                 <td>{{ $product->created_at }}</td>
                                 <td>
                                     <a type="button" class="btn btn-success" href="{{ route('admin.product.read',$product->id) }}">
-                                        <i class="fa fa-wrench" aria-hidden="true"></i> View
+                                        <i class="fa fa-eye" aria-hidden="true"></i> View
+                                    </a>
+                                    <a type="button" class="btn btn-primary" href="{{ route('admin.product.edit',$product->id) }}">
+                                        <i class="fa fa-wrench" aria-hidden="true"></i> Edit
                                     </a>
                                     <button class="btn btn-danger" href="#" data-toggle="modal" data-target="#deleteModal-{{$product->id}}">
                                         <i class="fa fa-trash" aria-hidden="true"></i> Delete

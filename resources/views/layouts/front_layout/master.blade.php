@@ -38,7 +38,7 @@
     </div>
 
     <!-- Preloader Start -->
-    @include('layouts.back_layout.header')
+    @include('layouts.front_layout.header')
 
     @yield('content')
 
@@ -90,5 +90,6 @@
     <script src="{{ asset('js/front_js/plugins.js') }}"></script>
     <script src="{{ asset('js/front_js/main.js') }}"></script>
     
+
 </body>
 </html>
