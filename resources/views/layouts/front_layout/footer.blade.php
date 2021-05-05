@@ -91,7 +91,7 @@
                 <div class="row align-items-center">
                     <div class="col-xl-7 col-lg-8 col-md-7">
                         <div class="footer-copy-right">
-                            <p>Copyright 2021 All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">Thanh Doi</a></p>                  
+                            <p>Copyright 2021 All rights reserved <span style="color: green">GCAPVN CO., LTD</span>| This website is designed by <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">Thanh Doi</a></p>                  
                         </div>
                     </div>
                     <div class="col-xl-5 col-lg-4 col-md-5">

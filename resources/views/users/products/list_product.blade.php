@@ -25,7 +25,7 @@
                         <nav>                                                      
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                 @foreach($getCategories as $getCategory)
-                                <a class="nav-item nav-link @if ($getCategory->id==$IdActive) active @endif " id="nav-category-tab-{{$getCategory->id}}" data-toggle="tab" href="#nav-category-{{$getCategory->id}}" role="tab" aria-controls="nav-category-{{$getCategory->id}}" @if ($getCategory->id==$IdActive) aria-selected="true" @else aria-selected="false" @endif>{{$getCategory->name}}</a>
+                                <a class=" nav-item nav-link @if ($getCategory->id==$IdActive) active @endif " id="nav-category-tab-{{$getCategory->id}}" data-toggle="tab" href="#nav-category-{{$getCategory->id}}" role="tab" aria-controls="nav-category-{{$getCategory->id}}" @if ($getCategory->id==$IdActive) aria-selected="true" @else aria-selected="false" @endif>{{$getCategory->name}}</a>
                                 @endforeach
                             </div>
                         </nav>
@@ -37,6 +37,7 @@
                     <!-- Select items -->
                     
                 </div>
+                <hr>
                 <!-- Nav Card -->
                 <div class="tab-content" id="nav-tabContent">
                     <!-- card one -->
