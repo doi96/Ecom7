@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/','HomeController@index')->name('user.home');
 Route::get('product-category/{id}','UserController@getProductbyCategory')->name('product.category');
+Route::get('product-all','UserController@allProduct')->name('product.all');
 
 
 Auth::routes();
