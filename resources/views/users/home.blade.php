@@ -169,7 +169,7 @@
                 <!-- Button -->
                 <div class="row justify-content-center">
                     <div class="room-btn pt-70">
-                        <a href="catagori.html" class="btn view-btn1">View More Products</a>
+                        <a href="{{ route('product.all') }}" class="btn view-btn1">View More Products</a>
                     </div>
                 </div>
             </div>
@@ -188,7 +188,7 @@
                 <!-- Arrow -->
                 <div class="thumb-content-box">
                     <div class="thumb-content">
-                        <h3>Next Video</h3>
+                        <h3>About us</h3>
                         <a href="#"> <i class="flaticon-arrow"></i></a>
                     </div>
                 </div>
