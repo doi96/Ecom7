@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\AdminProfile;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -160,5 +162,55 @@ class AdminController extends Controller
         Session::flash('success_message','Slide has been deleted sucessfully!');
 
         return back();
+    }
+
+    public function getallPost()
+    {
+        $posts = Post::all();
+        return view('admins.posts.index')->with(compact('posts'));
+    }
+
+    public function createPost()
+    {
+        return view('admins.posts.create_post');
+    }
+
+    public function storePost(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'type_post' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'video' => 'mimes:mpeg,ogg,mp4,webm,3gp,mov,flv,avi,wmv,ts',
+        ]);
+
+        if ($request->image) {
+            $imageName = time().'.'.$request->image->extension();  
+            $image_tmp = $request->file('image');
+
+            //move image to folder
+            $large_image_path = 'images/front_images/post/'.$imageName;
+            Image::make($image_tmp)->save($large_image_path);
+        }
+
+        if (isset($request->video)) {
+            $videoName = time().'.'.$request->video->extension();  
+            $request->video->move(public_path('videos/front_videos/products'), $videoName);
+        }
+
+        $data = $request->all();
+        $post = new Post();
+        $post->title = $data['title'];
+        $post->description = $data['description'];
+        $post->type = $data['type_post'];
+        $post->image = isset($data['image'])?$imageName:NULL;
+        $post->video = isset($data['video'])?$videoName:NULL;
+        $post->status = isset($data['status'])?1:0;
+        $post->save();
+
+        Session::flash('success_message','Post has been created successfully!');
+
+        return redirect()->route('admin.post.all');
     }
 }

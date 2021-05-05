@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Post;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -29,5 +30,12 @@ class UserController extends Controller
     {
         $getCategories = Category::where('status',1)->with('products')->get();
         return view('users.contact.contact')->with(compact('getCategories'));
+    }
+
+    public function abouts()
+    {
+        $getCategories = Category::where('status',1)->with('products')->get();
+        $about = Post::where('type','about')->where('status',1)->first();
+        return view('users.about.about')->with(compact('about','getCategories'));
     }
 }

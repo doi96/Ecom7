@@ -22,6 +22,7 @@ Route::get('product-all','UserController@allProduct')->name('product.all');
 
 // Contact route
 Route::get('user-contact','UserController@contact')->name('user.contact');
+Route::get('user-about','UserController@abouts')->name('user.about');
 
 
 
@@ -66,6 +67,11 @@ Route::prefix('admin')->group(function() {
         Route::get('admin-product-edit/{id}','ProductController@editProduct')->name('admin.product.edit');
         Route::post('admin-product-update/{id}','ProductController@updateProduct')->name('admin.product.update');
         Route::post('admin-product-store','ProductController@storeProduct')->name('admin.product.store');
+
+        //Post route
+        Route::get('admin-post-all','Auth\AdminController@getallPost')->name('admin.post.all');
+        Route::get('admin-post-create','Auth\AdminController@createPost')->name('admin.post.create');
+        Route::post('admin-post-store','Auth\AdminController@storePost')->name('admin.post.store');
 
     });
 
