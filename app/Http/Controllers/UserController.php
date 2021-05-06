@@ -24,4 +24,10 @@ class UserController extends Controller
         
         return view('users.products.all_products')->with(compact('products','getCategories'));
     }
+
+    public function contact()
+    {
+        $getCategories = Category::where('status',1)->with('products')->get();
+        return view('users.contact.contact')->with(compact('getCategories'));
+    }
 }
