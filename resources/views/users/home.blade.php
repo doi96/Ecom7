@@ -106,24 +106,25 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-gallery mb-30">
-                            <div class="gallery-img big-img" style="background-image: url(images/front_images/gallery/gallery1.png);"></div>
+                            <div class="gallery-img big-img" style="background-image: url(images/front_images/show/5.jpg);"></div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-gallery mb-30">
-                            <div class="gallery-img big-img" style="background-image: url(/images/front_images/gallery/gallery2.png);"></div>
+
+                            <div class="gallery-img big-img" style="background-image: url(images/front_images/show/doc.jpg);"></div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-12">
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-6 col-sm-6">
                                 <div class="single-gallery mb-30">
-                                    <div class="gallery-img small-img" style="background-image: url(/images/front_images/gallery/gallery3.png);"></div>
+                                    <div class="gallery-img small-img" style="background-image: url(images/front_images/show/1.jpg);"></div>
                                 </div>
                             </div>
                             <div class="col-xl-12 col-lg-12  col-md-6 col-sm-6">
                                 <div class="single-gallery mb-30">
-                                    <a href="google.com"><div class="gallery-img small-img" style="background-image: url(/images/front_images/gallery/gallery4.png);"></div></a>
+                                    <a href="google.com"><div class="gallery-img small-img" style="background-image: url(images/front_images/show/2.jpg);"></div></a>
                                 </div>
                             </div>
                         </div>
@@ -208,14 +209,15 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-10">
                         <div class="choice-watch-img mb-40">
-                            <img src="/images/front_images/gallery/choce_watch1.png" alt="">
+                            <img src="images/front_images/show/3.jpg" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="row align-items-center justify-content-between">
                     <div class="col-lg-6 col-md-6 col-sm-10">
                         <div class="choice-watch-img mb-40">
-                            <img src="/images/front_images/gallery/choce_watch2.png" alt="">
+
+                            <img src="images/front_images/show/4.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-6">
