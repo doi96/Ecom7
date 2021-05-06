@@ -89,6 +89,7 @@
     <!-- Jquery Plugins, main Jquery -->	
     <script src="{{ asset('js/front_js/plugins.js') }}"></script>
     <script src="{{ asset('js/front_js/main.js') }}"></script>
+
     
 
 </body>
