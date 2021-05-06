@@ -35,7 +35,8 @@ class UserController extends Controller
     public function abouts()
     {
         $getCategories = Category::where('status',1)->with('products')->get();
-        $about = Post::where('type','about')->where('status',1)->first();
+        $about = Post::where('type','about')->where('status',1)->orderByDesc('created_at','desc')->first();
+
         return view('users.about.about')->with(compact('about','getCategories'));
     }
 }

@@ -109,9 +109,11 @@
     <script src="{{ asset('/js/back_js/demo/datatables-demo.js') }}"></script>
 
     <!-- Word editor -->
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+
+    <script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('/ckfinder/ckfinder.js') }}"></script>
     <script>
-     CKEDITOR.replace('descriptionPost' ,{
+        CKEDITOR.replace('descriptionPost',{
         filebrowserBrowseUrl: '{{ asset("ckfinder/ckfinder.html") }}',
         filebrowserImageBrowseUrl: '{{ asset("ckfinder/ckfinder.html?type=Images") }}',
         filebrowserFlashBrowseUrl: '{{ asset("ckfinder/ckfinder.html?type=Flash") }}',
