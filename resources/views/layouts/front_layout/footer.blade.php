@@ -37,7 +37,7 @@
                             <div class="single-footer-caption mb-30">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                    <a href="{{ route('user.home') }}"><img src="{{ asset('images/front_images/GCapvn.png') }}" alt="" style="width: 100px"></a>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
@@ -52,10 +52,10 @@
                             <div class="footer-tittle">
                                 <h4>Quick Links</h4>
                                 <ul>
-                                    <li><a href="#">About</a></li>
+                                    <li><a href="{{ route('user.about') }}">About</a></li>
                                     <li><a href="#"> Offers & Discounts</a></li>
                                     <li><a href="#"> Get Coupon</a></li>
-                                    <li><a href="#">  Contact Us</a></li>
+                                    <li><a href="{{ route('user.contact') }}">  Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>

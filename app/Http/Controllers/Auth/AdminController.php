@@ -213,4 +213,20 @@ class AdminController extends Controller
 
         return redirect()->route('admin.post.all');
     }
+
+    public function readPost($id)
+    {
+        $post = Post::where('id',$id)->first();
+
+        return view('admins.posts.read_post')->with(compact('post'));
+    }
+
+    public function deletePost($id)
+    {
+        $post = Post::where('id',$id)->delete();
+
+        Session::flash('success_message','The Post has been deleted successfully!');
+
+        return back();
+    }
 }
