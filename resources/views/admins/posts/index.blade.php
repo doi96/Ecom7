@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Slides</h1>
+    <h1 class="h3 mb-2 text-gray-800">Posts</h1>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -59,6 +59,9 @@
                                 <td>{{ $post->type }}</td>
                                 <td>{{ $post->status }}</td>
                                 <td>
+                                    <a type="button" class="btn btn-success" href="{{ route('admin.post.read',$post->id) }}">
+                                        <i class="fa fa-eye" aria-hidden="true"></i> Read
+                                    </a>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{ $post->id }}">
                                         <i class="fa fa-wrench" aria-hidden="true"></i> Edit
                                     </button>
@@ -69,52 +72,9 @@
                             </tr>
                         
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal-{{ $post->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Edit Post</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-
-                                        {{-- <form action="{{ route('admin.slider.edit',$slide->id) }}" method="POST" enctype="multipart/form-data">@csrf
-                                            <div class="form-group">
-                                                <label for="title">Title</label>
-                                                <input value="{{ $slide->title }}" name="title" type="text" class="form-control" id="title">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="title">Image</label>
-                                                <img src="{{ asset('images/front_images/slider/'.$slide->image) }}" style="width: 50%">
-                                                <input value="{{ $slide->image }}" name="image" type="file" class="form-control" id="image">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="description">Description</label>
-                                                <textarea name="description" class="form-control" id="description" rows="3">{{$slide->description}}</textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="title">Link</label>
-                                                <input value="{{ $slide->link }}" name="link" type="text" class="form-control" id="link">
-                                            </div>
-                                            <div class="form-check">
-                                                <input name="status" class="form-check-input" type="checkbox" id="status" value="1" @if($slide->status ==1) checked @endif >
-                                                <label class="form-check-label" for="status">
-                                                    Activate
-                                                </label>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </form> --}}
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
+                            
                             <!-- Delete Modal-->
-                            {{-- <div class="modal fade" id="deleteModal-{{$slide->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                            <div class="modal fade" id="deleteModal-{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -128,11 +88,11 @@
                                         <div class="modal-footer">
                                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
 
-                                            <a class="btn btn-danger" href="{{ route('admin.slider.delete',$slide->id) }}">Delete</a>
+                                            <a class="btn btn-danger" href="{{ route('admin.post.delete',$post->id) }}">Delete</a>
                                         </div>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
                             <?php $i++; ?>
                         @endforeach
                     </tbody>
