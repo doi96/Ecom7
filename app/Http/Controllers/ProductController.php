@@ -113,7 +113,8 @@ class ProductController extends Controller
             Image::make($image_tmp)->resize(360,360)->save($small_image_path);
             // Store image name in products table
         }else {
-            $imageName = Product::where('id',$id)->select('image')->first();
+            $image = Product::where('id',$id)->select('image')->first();
+            $imageName = $image->image;
         }
 
         // add video
@@ -121,7 +122,8 @@ class ProductController extends Controller
             $videoName = time().'.'.$request->video->extension();  
             $request->video->move(public_path('videos/front_videos/products'), $videoName);
         }else {
-            $videoName = Product::where('id',$id)->select('video')->first();
+            $video = Product::where('id',$id)->select('video')->first();
+            $videoName = $video->video;
         }
 
         $status = isset($data['status'])?$data['status']:0;

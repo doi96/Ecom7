@@ -60,9 +60,9 @@
             </div>
         </div>
         <div class="card-footer">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProfile-{{ $post->id }}">
+            <a type="button" class="btn btn-primary" href="{{ route('admin.post.edit',$post->id) }}">
                 <i class="fa fa-wrench" aria-hidden="true"></i> Edit Profile
-            </button>
+            </a>
         </div>
     </div>
 
