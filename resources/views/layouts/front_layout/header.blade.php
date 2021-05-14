@@ -6,34 +6,35 @@
                     <div class="menu-wrapper">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="{{ route('user.home') }}"><img src="{{ asset('images/front_images/logo.png') }}" alt="" style="width: 264px; high: 48px;"></a>
+                            <a href="{{ route('user.home') }}"><img src="{{ asset('images/front_images/GCapvn.png') }}" alt="" style="width: 90px; high: 45px;"></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu d-none d-lg-block">
                             <nav>                                                
                                 <ul id="navigation">  
-                                    <li><a href="{{ route('user.home') }}">Home</a></li>
-                                    <li><a href="{{ route('user.about') }}">about</a></li>
-                                    <li class="hot"><a href="{{ route('product.all') }}">Product</a>
+                                    <li><a href="{{ route('user.home') }}">Trang chủ</a></li>
+                                    <li><a href="blog.html">Về GCAPVN</a>
+                                        <ul class="submenu">
+                                            <li><a href="blog.html">Giới thiệu</a></li>
+                                            <li><a href="blog-details.html">Chính sách phân phối</a></li>
+                                            <li><a href="blog-details.html">Danh sách phân phối</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="hot"><a href="{{ route('product.all') }}">Sản phẩm</a>
                                         <ul class="submenu">
                                             @foreach ($getCategories as $getCategory)
                                                 <li><a href="{{ route('product.category',$getCategory->id) }}"> {{ $getCategory->name }}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li><a href="blog.html">News</a>
+                                    <li><a href="blog.html">Bài viết</a>
                                         <ul class="submenu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                            <li><a href="blog.html">Công dụng</a></li>
+                                            <li><a href="blog-details.html">Hướng dẫn sử dụng & bảo quản</a></li>
+                                            <li><a href="blog.html">Khác</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Tutorial</a>
-                                        <ul class="submenu">
-                                            <li><a href="confirmation.html">Confirmation</a></li>
-                                            <li><a href="checkout.html">Product Checkout</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="{{ route('user.contact') }}">Contact</a></li>
+                                    <li><a href="{{ route('user.contact') }}">Liên hệ</a></li>
                                 </ul>
                             </nav>
                         </div>

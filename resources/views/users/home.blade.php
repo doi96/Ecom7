@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>GCAPVN | Website</title>
+    <title>GCAPVN | Trang chủ</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -54,7 +54,7 @@
                                                 <p data-animation="fadeInLeft" data-delay=".4s" data-duration="100ms">{{ $slide->description }}</p>
                                                 <!-- Hero-btn -->
                                                 <div class="hero__btn" data-animation="fadeInLeft" data-delay=".4s" data-duration="100ms">
-                                                    <a href="{{$slide->link}}" class="btn hero-btn">View now</a>
+                                                    <a href="{{$slide->link}}" class="btn hero-btn">Xem ngay</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -78,7 +78,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="section-tittle mb-70">
-                            <h2>New Products</h2>
+                            <h2>Sản phẩm mới</h2>
                         </div>
                     </div>
                 </div>
@@ -141,7 +141,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8 col-md-10">
                         <div class="section-tittle mb-70 text-center">
-                            <h2>Popular Items</h2>
+                            <h2>Sản phẩm nổi bật</h2>
                             <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                                 <div class="popular-img">
                                     <img src="{{ asset('images/front_images/product/small/'.$getFeatureProduct->image) }}" alt="">
                                     <div class="img-cap">
-                                        <a href="google.com"><span>Add to cart</span></a>
+                                        <a href="google.com"><span>Xem chi tiết</span></a>
                                     </div>
                                     <div class="favorit-items">
                                         <a href="youtube.com"><span class="flaticon-heart"></span></a>
@@ -170,7 +170,7 @@
                 <!-- Button -->
                 <div class="row justify-content-center">
                     <div class="room-btn pt-70">
-                        <a href="{{ route('product.all') }}" class="btn view-btn1">View More Products</a>
+                        <a href="{{ route('product.all') }}" class="btn view-btn1">Tất cả sản phẩm</a>
                     </div>
                 </div>
             </div>
@@ -189,7 +189,7 @@
                 <!-- Arrow -->
                 <div class="thumb-content-box">
                     <div class="thumb-content">
-                        <h3>About us</h3>
+                        <h3>Giới thiệu</h3>
                         <a href="#"> <i class="flaticon-arrow"></i></a>
                     </div>
                 </div>
@@ -202,9 +202,9 @@
                 <div class="row align-items-center justify-content-between padding-130">
                     <div class="col-lg-5 col-md-6">
                         <div class="watch-details mb-40">
-                            <h2>Watch of Choice</h2>
+                            <h2>Bài viết mới</h2>
                             <p>Enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-                            <a href="shop.html" class="btn">Show Watches</a>
+                            <a href="shop.html" class="btn">Xem ngay</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-10">
@@ -222,9 +222,9 @@
                     </div>
                     <div class="col-lg-5 col-md-6">
                         <div class="watch-details mb-40">
-                            <h2>Watch of Choice</h2>
+                            <h2>Bài viết mới</h2>
                             <p>Enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-                            <a href="shop.html" class="btn">Show Watches</a>
+                            <a href="shop.html" class="btn">Xem ngay</a>
                         </div>
                     </div>
                 </div>
