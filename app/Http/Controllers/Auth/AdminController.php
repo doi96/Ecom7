@@ -117,8 +117,11 @@ class AdminController extends Controller
         ]);
 
         $imageName = time().'.'.$request->image->extension();  
-        
-        $request->image->move(public_path('images/front_images/slider'), $imageName);
+        $image_tmp = $request->file('image');
+
+        //move image to folder
+        $large_image_path = 'images/front_images/slider/'.$imageName;
+        Image::make($image_tmp)->save($large_image_path);
 
         $data = $request->all();
         $status = isset($data['status'])?$data['status'] : 0 ;
@@ -138,9 +141,14 @@ class AdminController extends Controller
             'link' => 'required'
         ]);
         if (isset($request->image)) {
+            
             $imageName = time().'.'.$request->image->extension();  
+            $image_tmp = $request->file('image');
+
+            //move image to folder
+            $large_image_path = 'images/front_images/slider/'.$imageName;
+            Image::make($image_tmp)->save($large_image_path);
         
-            $request->image->move(public_path('images/front_images/slider'), $imageName);
         }else {
             $getImage = DB::table('slides')->where('id',$id)->first();
             $imageName = $getImage->image;
@@ -191,7 +199,7 @@ class AdminController extends Controller
 
             //move image to folder
             $large_image_path = 'images/front_images/post/'.$imageName;
-            Image::make($image_tmp)->save($large_image_path);
+            Image::make($image_tmp)->resize(750,350)->save($large_image_path);
         }
 
         if (isset($request->video)) {
@@ -228,5 +236,56 @@ class AdminController extends Controller
         Session::flash('success_message','The Post has been deleted successfully!');
 
         return back();
+    }
+
+    public function editPost($id)
+    {
+        $post = Post::where('id',$id)->first();
+
+        return view('admins.posts.edit_post')->with(compact('post'));
+    }
+
+    public function updatePost($id, Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'type_post' => 'required',
+            'description' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'video' => 'mimes:mp4,avi'
+        ]);
+        
+        if ($request->image) {
+            $imageName = time().'.'.$request->image->extension();  
+            $image_tmp = $request->file('image');
+
+            //move image to folder
+            $large_image_path = 'images/front_images/post/'.$imageName;
+            Image::make($image_tmp)->resize(750,350)->save($large_image_path);
+        }else {
+            $image = Post::where('id',$id)->select('image')->first();
+            $imageName = $image ->image;
+            // echo $imageName;die;
+        }
+
+        if (isset($request->video)) {
+            $videoName = time().'.'.$request->video->extension();  
+            $request->video->move(public_path('videos/front_videos/post'), $videoName);
+        }else{
+            $video = Post::where('id',$id)->select('video')->first();
+            $videoName = $video->video;
+        }
+
+        $data = $request->all();
+        $status = isset($data['status'])?1:0;
+        $post = Post::where('id',$id)->update(['title'=>$data['title'],'type'=>$data['type_post'],'description'=>$data['description'],'status'=>$status,'image'=>$imageName,'video'=>$videoName]);
+
+        Session::flash('success_message','Post has been updated successfully!');
+        // $imageName = Post::where('id',$id)->select('image')->first();
+        // $imageName = $image ->image;
+        // echo $imageName;die;
+
+        return redirect()->route('admin.post.all');
+
     }
 }

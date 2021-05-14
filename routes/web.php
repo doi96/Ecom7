@@ -24,7 +24,9 @@ Route::get('product-all','UserController@allProduct')->name('product.all');
 Route::get('user-contact','UserController@contact')->name('user.contact');
 Route::get('user-about','UserController@abouts')->name('user.about');
 
-
+// Post route
+Route::get('user-post-{type}','UserController@getPost')->name('user.post');
+Route::get('user-post-{type}-read/{id}','UserController@readPost')->name('user.post.read');
 
 Auth::routes();
 
@@ -73,6 +75,8 @@ Route::prefix('admin')->group(function() {
         Route::get('admin-post-create','Auth\AdminController@createPost')->name('admin.post.create');
         Route::get('admin-post-read/{id}','Auth\AdminController@readPost')->name('admin.post.read');
         Route::get('admin-post-delete/{id}','Auth\AdminController@deletePost')->name('admin.post.delete');
+        Route::get('admin-post-edit/{id}','Auth\AdminController@editPost')->name('admin.post.edit');
+        Route::post('admin-post-update/{id}','Auth\AdminController@updatePost')->name('admin.post.update');
         Route::post('admin-post-store','Auth\AdminController@storePost')->name('admin.post.store');
 
     });
