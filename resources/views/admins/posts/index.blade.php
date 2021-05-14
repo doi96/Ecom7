@@ -62,9 +62,9 @@
                                     <a type="button" class="btn btn-success" href="{{ route('admin.post.read',$post->id) }}">
                                         <i class="fa fa-eye" aria-hidden="true"></i> Read
                                     </a>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{ $post->id }}">
+                                    <a type="button" class="btn btn-primary" href="{{ route('admin.post.edit',$post->id) }}">
                                         <i class="fa fa-wrench" aria-hidden="true"></i> Edit
-                                    </button>
+                                    </a>
                                     <button class="btn btn-danger" href="#" data-toggle="modal" data-target="#deleteModal-{{$post->id}}">
                                         <i class="fa fa-trash" aria-hidden="true"></i> Delete
                                     </button>

@@ -50,7 +50,7 @@
                     <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
-                                <h4>Quick Links</h4>
+                                <h4>Truy cập nhanh</h4>
                                 <ul>
                                     <li><a href="{{ route('user.about') }}">About</a></li>
                                     <li><a href="#"> Offers & Discounts</a></li>
@@ -63,7 +63,7 @@
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
-                                <h4>New Products</h4>
+                                <h4>Sản phẩm mới</h4>
                                 <ul>
                                     <li><a href="#">Woman Cloth</a></li>
                                     <li><a href="#">Fashion Accessories</a></li>
@@ -76,7 +76,7 @@
                     <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
-                                <h4>Support</h4>
+                                <h4>Hỗ trợ</h4>
                                 <ul>
                                     <li><a href="#">Frequently Asked Questions</a></li>
                                     <li><a href="#">Terms & Conditions</a></li>
