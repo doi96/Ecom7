@@ -13,11 +13,11 @@
                             <nav>                                                
                                 <ul id="navigation">  
                                     <li><a href="{{ route('user.home') }}">Trang chủ</a></li>
-                                    <li><a href="blog.html">Về GCAPVN</a>
+                                    <li><a href="#">Về GCAPVN</a>
                                         <ul class="submenu">
-                                            <li><a href="blog.html">Giới thiệu</a></li>
+                                            <li><a href="{{ route('user.about') }}">Giới thiệu</a></li>
                                             <li><a href="blog-details.html">Chính sách phân phối</a></li>
-                                            <li><a href="blog-details.html">Danh sách phân phối</a></li>
+                                            <li><a href="blog-details.html">Danh sách nhà phân phối</a></li>
                                         </ul>
                                     </li>
                                     <li class="hot"><a href="{{ route('product.all') }}">Sản phẩm</a>
@@ -27,7 +27,7 @@
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li><a href="blog.html">Bài viết</a>
+                                    <li><a href="#">Bài viết</a>
                                         <ul class="submenu">
                                             <li><a href="blog.html">Công dụng</a></li>
                                             <li><a href="blog-details.html">Hướng dẫn sử dụng & bảo quản</a></li>
