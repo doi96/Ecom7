@@ -31,7 +31,7 @@
                                 </a>
                                 <ul>
                                     <div class="hero__btn" data-animation="fadeInLeft" data-delay=".4s" data-duration="100ms" style="animation-delay: 0.4s;">
-                                        <a href="{{ route('user.post.read',$typePost,$post->id) }}" class="btn hero-btn">Xem ngay</a>
+                                        <a href="{{ route('user.post.read',[$type,$post->id]) }}" class="btn hero-btn">Xem ngay</a>
                                     </div>
                                 </ul>
                             </div>
