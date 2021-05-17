@@ -31,10 +31,11 @@
                         <label for="exampleFormControlSelect1">Type post</label>
                         <select class="form-control" id="type_post" name="type_post" >
                         <option value="0"> -- Select type -- </option>
-                            <option value="about">About</option>
+                            <option value="other">Other</option>
                             <option value="news">News</option>
                             <option value="tutorial">Tutoial</option>
                             <option value="uses">Uses</option>
+                            <option value="other">Other</option>
                         </select>
                     </div>
                     <div class="form-group">

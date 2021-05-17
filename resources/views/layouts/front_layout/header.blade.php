@@ -29,8 +29,8 @@
                                     </li>
                                     <li><a href="#">Bài viết</a>
                                         <ul class="submenu">
-                                            <li><a href="blog.html">Công dụng</a></li>
-                                            <li><a href="blog-details.html">Hướng dẫn sử dụng & bảo quản</a></li>
+                                            <li><a href="{{ route('user.post','uses') }}">Công dụng</a></li>
+                                            <li><a href="blog-details.html">Chế biến & bảo quản</a></li>
                                             <li><a href="blog.html">Khác</a></li>
                                         </ul>
                                     </li>

@@ -199,7 +199,7 @@ class AdminController extends Controller
 
             //move image to folder
             $large_image_path = 'images/front_images/post/'.$imageName;
-            Image::make($image_tmp)->save($large_image_path);
+            Image::make($image_tmp)->resize(750,350)->save($large_image_path);
         }
 
         if (isset($request->video)) {
@@ -261,7 +261,7 @@ class AdminController extends Controller
 
             //move image to folder
             $large_image_path = 'images/front_images/post/'.$imageName;
-            Image::make($image_tmp)->save($large_image_path);
+            Image::make($image_tmp)->resize(750,350)->save($large_image_path);
         }else {
             $image = Post::where('id',$id)->select('image')->first();
             $imageName = $image ->image;

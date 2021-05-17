@@ -39,4 +39,21 @@ class UserController extends Controller
 
         return view('users.about.about')->with(compact('about','getCategories'));
     }
+
+    public function getPost($type)
+    {
+        $getCategories = Category::where('status',1)->with('products')->get();
+        $posts = Post::where('status',1)->where('type',$type)->orderByDesc('created_at','desc')->paginate(5);
+        $typePost = $type;
+        return view('users.post.uses_post')->with(compact('posts','getCategories','typePost'));
+    }
+
+    public function readPost($type,$id)
+    {
+        $getCategories = Category::where('status',1)->with('products')->get();
+        $use = Post::where('status',1)->where('id',$id)->first();
+        $usesSame = Post::where('status',1)->where('type','uses')->orderByDesc('created_at','desc')->limit(10)->get();
+
+        return view('users.post.read_post')->with(compact('use','getCategories','usesSame'));
+    }
 }

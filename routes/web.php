@@ -24,7 +24,9 @@ Route::get('product-all','UserController@allProduct')->name('product.all');
 Route::get('user-contact','UserController@contact')->name('user.contact');
 Route::get('user-about','UserController@abouts')->name('user.about');
 
-
+// Post route
+Route::get('user-post-{type}','UserController@getPost')->name('user.post');
+Route::get('user-post-{type}-read/{id}','UserController@readPost')->name('user.post.read');
 
 Auth::routes();
 
