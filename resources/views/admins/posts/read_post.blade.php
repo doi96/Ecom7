@@ -61,7 +61,7 @@
         </div>
         <div class="card-footer">
             <a type="button" class="btn btn-primary" href="{{ route('admin.post.edit',$post->id) }}">
-                <i class="fa fa-wrench" aria-hidden="true"></i> Edit Profile
+                <i class="fa fa-wrench" aria-hidden="true"></i> Edit Post
             </a>
         </div>
     </div>
