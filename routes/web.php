@@ -30,7 +30,9 @@ Route::get('user-post-{type}-read/{id}','UserController@readPost')->name('user.p
 
 // Search post
 Route::match(['get','post'],'user-search-post','UserController@searchPost')->name('user.search.post');
-Route::post('user-search-product','UserController@searchProduct')->name('user.search.product');
+
+// Search product
+Route::match(['get','post'],'user-search-product','UserController@searchProduct')->name('user.search.product');
 
 Auth::routes();
 
