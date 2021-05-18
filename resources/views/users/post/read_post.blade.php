@@ -14,6 +14,8 @@
                             Chế biến & bảo quản
                             @elseif ($type=='orther')
                             Bài viết khác
+                            @elseif ($type=='news')
+                            News
                             @endif
                         </h2>
                     </div>
@@ -38,6 +40,7 @@
                                 <a class="d-inline-block" href="#">
                                     <h2>{{ $post->title }}</h2>
                                 </a>
+                                <p class="date">{{ $post->created_at }} </p>
                                 <ul>
                                     <div class="hero__btn" data-animation="fadeInLeft" data-delay=".4s" data-duration="100ms" style="animation-delay: 0.4s;">
                                         <p>{!! $post->description !!}</p>

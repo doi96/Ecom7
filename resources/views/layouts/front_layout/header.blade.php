@@ -27,6 +27,7 @@
                                             @endforeach
                                         </ul>
                                     </li>
+                                    <li><a href="{{ route('user.post','news') }}">News</a></li>
                                     <li><a href="#">Bài viết</a>
                                         <ul class="submenu">
                                             <li><a href="{{ route('user.post','uses') }}">Công dụng</a></li>
@@ -46,8 +47,6 @@
                                         <span class="flaticon-search"></span>
                                     </div>
                                 </li>
-                                <li> <a href="login.html"><span class="flaticon-user"></span></a></li>
-                                <li><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
                             </ul>
                         </div>
                     </div>

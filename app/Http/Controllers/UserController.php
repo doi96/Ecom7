@@ -44,6 +44,8 @@ class UserController extends Controller
     {
         $getCategories = Category::where('status',1)->with('products')->get();
         $posts = Post::where('status',1)->where('type',$type)->orderByDesc('created_at','desc')->paginate(5);
+
+        // dd($posts);
         return view('users.post.list_post')->with(compact('posts','getCategories','type'));
     }
 
@@ -51,7 +53,7 @@ class UserController extends Controller
     {
         $getCategories = Category::where('status',1)->with('products')->get();
         $post = Post::where('status',1)->where('id',$id)->first();
-        $samePosts = Post::where('status',1)->where('type','uses')->orderByDesc('created_at','desc')->limit(10)->get();
+        $samePosts = Post::where('status',1)->where('type',$type)->orderByDesc('created_at','desc')->limit(10)->get();
 
         return view('users.post.read_post')->with(compact('post','type','getCategories','samePosts'));
     }
