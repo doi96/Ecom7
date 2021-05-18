@@ -7,7 +7,15 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="hero-cap text-center">
-                        <h2>Công dụng</h2>
+                        <h2>
+                            @if ($type=='uses')
+                            Công dụng
+                            @elseif ($type=='tutorial')
+                            Chế biến & bảo quản
+                            @elseif ($type=='orther')
+                            Bài viết khác
+                            @endif
+                        </h2>
                     </div>
                 </div>
             </div>
@@ -31,7 +39,7 @@
                                 </a>
                                 <ul>
                                     <div class="hero__btn" data-animation="fadeInLeft" data-delay=".4s" data-duration="100ms" style="animation-delay: 0.4s;">
-                                        <a href="{{ route('user.post.read',$typePost,$post->id) }}" class="btn hero-btn">Xem ngay</a>
+                                        <a href="{{ route('user.post.read',[$type,$post->id]) }}" class="btn hero-btn">Xem ngay</a>
                                     </div>
                                 </ul>
                             </div>
@@ -52,17 +60,17 @@
                         <h4 class="widget_title">Danh mục</h4>
                         <ul class="list cat-list">
                             <li>
-                                <a href="#" class="d-flex">
+                                <a href="{{ route('user.post','uses') }}" class="d-flex">
                                     <p>Công dụng</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="d-flex">
+                                <a href="{{ route('user.post','tutorial') }}" class="d-flex">
                                     <p>Chế biến & bảo quản</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="d-flex">
+                                <a href="{{ route('user.post','orther') }}" class="d-flex">
                                     <p>Khác</p>
                                 </a>
                             </li>

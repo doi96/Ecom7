@@ -30,8 +30,8 @@
                                     <li><a href="#">Bài viết</a>
                                         <ul class="submenu">
                                             <li><a href="{{ route('user.post','uses') }}">Công dụng</a></li>
-                                            <li><a href="blog-details.html">Chế biến & bảo quản</a></li>
-                                            <li><a href="blog.html">Khác</a></li>
+                                            <li><a href="{{ route('user.post','tutorial') }}">Chế biến & bảo quản</a></li>
+                                            <li><a href="{{ route('user.post','orther') }}"">Khác</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="{{ route('user.contact') }}">Liên hệ</a></li>
