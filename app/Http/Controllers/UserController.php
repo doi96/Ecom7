@@ -62,7 +62,10 @@ class UserController extends Controller
     {
         $value = $request->search;
         $getCategories = Category::where('status',1)->with('products')->get();
-        $posts = Post::where('title','LIKE','%'.$value.'%')->orWhere('description','LIKE','%'.$value.'%')->paginate(5);
+
+        $posts = Post::where(function($query) use($value){
+            $query->where('title','LIKE','%'.$value.'%')->orWhere('description','LIKE','%'.$value.'%');
+        })->where('status',1)->where('type','!=','about')->paginate(5);
 
         return view('users.post.list_post')->with(compact('posts','value','getCategories'));
     }
