@@ -45,7 +45,7 @@
     @include('layouts.front_layout.footer')
 
     <!--? Search model Begin -->
-    @include('layouts.front_layout.search')
+    @include('layouts.front_layout.search_product')
     <!-- Search model end -->
 
     <!-- JS here -->

@@ -28,6 +28,10 @@ Route::get('user-about','UserController@abouts')->name('user.about');
 Route::get('user-post-{type}','UserController@getPost')->name('user.post');
 Route::get('user-post-{type}-read/{id}','UserController@readPost')->name('user.post.read');
 
+// Search post
+Route::match(['get','post'],'user-search-post','UserController@searchPost')->name('user.search.post');
+Route::post('user-search-product','UserController@searchProduct')->name('user.search.product');
+
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
