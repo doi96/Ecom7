@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,8 +21,7 @@ Route::get('/','HomeController@index')->name('user.home');
 Route::get('product-category/{id}','UserController@getProductbyCategory')->name('product.category');
 Route::get('product-all','UserController@allProduct')->name('product.all');
 
-// Contact route
-Route::get('user-contact','UserController@contact')->name('user.contact');
+// About route
 Route::get('user-about','UserController@abouts')->name('user.about');
 
 // Post route
@@ -39,6 +39,10 @@ Route::get('user-distributor-list','UserController@viewDistributor')->name('user
 
 Route::get('user-distribution-list','UserController@viewDistribution')->name('user.distribution');
 Route::match(['get','post'],'user-distributor-search','UserController@searchDistributor')->name('user.distributor.search');
+
+//Send Mail contact
+Route::get('user-contact','ContactController@contact')->name('user.contact');
+Route::post('user-contact-sendmail', 'ContactController@contactPost')->name('user.contactPost');
 
 Auth::routes();
 
