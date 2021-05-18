@@ -57,4 +57,13 @@ class UserController extends Controller
 
         return view('users.post.read_post')->with(compact('post','type','getCategories','samePosts'));
     }
+
+    public function searchPost(Request $request)
+    {
+        $value = $request->search;
+        $getCategories = Category::where('status',1)->with('products')->get();
+        $posts = Post::where('title','LIKE','%'.$value.'%')->orWhere('description','LIKE','%'.$value.'%')->paginate(5);
+
+        return view('users.post.list_post')->with(compact('posts','value','getCategories'));
+    }
 }

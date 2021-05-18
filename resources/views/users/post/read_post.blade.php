@@ -8,13 +8,13 @@
                 <div class="col-xl-12">
                     <div class="hero-cap text-center">
                         <h2>
-                            @if ($type=='uses')
+                            @if ($post->type=='uses')
                             Công dụng
-                            @elseif ($type=='tutorial')
+                            @elseif ($post->type=='tutorial')
                             Chế biến & bảo quản
-                            @elseif ($type=='orther')
+                            @elseif ($post->type=='orther')
                             Bài viết khác
-                            @elseif ($type=='news')
+                            @elseif ($post->type=='news')
                             News
                             @endif
                         </h2>
@@ -53,7 +53,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
-
+                    @include('layouts.front_layout.search_post')
                     <aside class="single_sidebar_widget post_category_widget">
                         <h4 class="widget_title">Danh mục</h4>
                         <ul class="list cat-list">
@@ -79,7 +79,7 @@
                         <ul class="list cat-list">
                             @foreach ($samePosts as $item)
                                 <li>
-                                <a href="{{ route('user.post.read',[$type,$item->id]) }}" class="d-flex">
+                                <a href="{{ route('user.post.read',[$item->type,$item->id]) }}" class="d-flex">
                                     <p>{{$item->title}}</p>
                                 </a>
                             </li>
