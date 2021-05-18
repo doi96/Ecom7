@@ -7,7 +7,15 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="hero-cap text-center">
-                        <h2>Công dụng</h2>
+                        <h2>
+                            @if ($type=='uses')
+                            Công dụng
+                            @elseif ($type=='tutorial')
+                            Chế biến & bảo quản
+                            @elseif ($type=='orther')
+                            Bài viết khác
+                            @endif
+                        </h2>
                     </div>
                 </div>
             </div>
@@ -52,17 +60,17 @@
                         <h4 class="widget_title">Danh mục</h4>
                         <ul class="list cat-list">
                             <li>
-                                <a href="#" class="d-flex">
+                                <a href="{{ route('user.post','uses') }}" class="d-flex">
                                     <p>Công dụng</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="d-flex">
+                                <a href="{{ route('user.post','tutorial') }}" class="d-flex">
                                     <p>Chế biến & bảo quản</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="d-flex">
+                                <a href="{{ route('user.post','orther') }}" class="d-flex">
                                     <p>Khác</p>
                                 </a>
                             </li>
