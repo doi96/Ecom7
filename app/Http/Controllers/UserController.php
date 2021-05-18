@@ -44,16 +44,15 @@ class UserController extends Controller
     {
         $getCategories = Category::where('status',1)->with('products')->get();
         $posts = Post::where('status',1)->where('type',$type)->orderByDesc('created_at','desc')->paginate(5);
-        $typePost = $type;
-        return view('users.post.uses_post')->with(compact('posts','getCategories','typePost'));
+        return view('users.post.list_post')->with(compact('posts','getCategories','type'));
     }
 
     public function readPost($type,$id)
     {
         $getCategories = Category::where('status',1)->with('products')->get();
-        $use = Post::where('status',1)->where('id',$id)->first();
-        $usesSame = Post::where('status',1)->where('type','uses')->orderByDesc('created_at','desc')->limit(10)->get();
+        $post = Post::where('status',1)->where('id',$id)->first();
+        $samePosts = Post::where('status',1)->where('type','uses')->orderByDesc('created_at','desc')->limit(10)->get();
 
-        return view('users.post.read_post')->with(compact('use','getCategories','usesSame'));
+        return view('users.post.read_post')->with(compact('post','type','getCategories','samePosts'));
     }
 }

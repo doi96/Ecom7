@@ -21,18 +21,18 @@
                 <div class="blog_left_sidebar">
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                @if(isset($use->image))
-                                <img class="card-img rounded-0" src="{{ asset('images/front_images/post/'.$use->image) }}" alt="">
+                                @if(isset($post->image))
+                                <img class="card-img rounded-0" src="{{ asset('images/front_images/post/'.$post->image) }}" alt="">
                                 @endif
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
-                                    <h2>{{ $use->title }}</h2>
+                                <a class="d-inline-block" href="#">
+                                    <h2>{{ $post->title }}</h2>
                                 </a>
                                 <ul>
                                     <div class="hero__btn" data-animation="fadeInLeft" data-delay=".4s" data-duration="100ms" style="animation-delay: 0.4s;">
-                                        <p>{!! $use->description !!}</p>
+                                        <p>{!! $post->description !!}</p>
                                     </div>
                                 </ul>
                             </div>
@@ -66,9 +66,9 @@
                     <aside class="single_sidebar_widget post_category_widget">
                         <h4 class="widget_title">Bài viết tương tự</h4>
                         <ul class="list cat-list">
-                            @foreach ($usesSame as $item)
+                            @foreach ($samePosts as $item)
                                 <li>
-                                <a href="{{ route('user.post.uses.read',$item->id) }}" class="d-flex">
+                                <a href="{{ route('user.post.read',[$type,$item->id]) }}" class="d-flex">
                                     <p>{{$item->title}}</p>
                                 </a>
                             </li>
