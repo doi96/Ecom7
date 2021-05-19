@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>GCAPVN SHOP</h2>
+                                <h2>Danh sách sản phẩm</h2>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                                             <div class="popular-img">
                                                 <img src="{{ asset('images/front_images/product/small/'.$item->image) }}" alt="">
                                                 <div class="img-cap">
-                                                    <span>Add to cart</span>
+                                                    <span>Xem chi tiết</span>
                                                 </div>
                                                 <div class="favorit-items">
                                                     <span class="flaticon-heart"></span>
@@ -58,7 +58,7 @@
                                             </div>
                                             <div class="popular-caption">
                                                 <h3><a href="product_details.html">{{ $item->name }}</a></h3>
-                                                <span>{{ number_format($item->price) }} vnd</span>
+                                                <span>Liên hệ để biết giá</span>
                                             </div>
                                         </div>
                                     </div>
