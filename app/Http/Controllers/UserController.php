@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Distribution;
 use App\Post;
 use App\Product;
 use Illuminate\Http\Request;
@@ -80,5 +81,28 @@ class UserController extends Controller
         })->where('status',1)->paginate(6);
 
         return view('users.products.list_search_product')->with(compact('products','value','getCategories'));
+    }
+
+    public function viewDistributor()
+    {
+        $getCategories = Category::where('status',1)->with('products')->get();
+        $distri_north = Distribution::where('status',1)->where('area','north')->get();
+        $distri_south = Distribution::where('status',1)->where('area','south')->get();
+        $distri_middle = Distribution::where('status',1)->where('area','middle')->get();
+        $distri_orther = Distribution::where('status',1)->where('area','orther')->get();
+
+        return view('users.distribution.distributor_list')->with(compact('getCategories','distri_north','distri_south','distri_middle','distri_orther'));
+    }
+
+    public function searchDistributor(Request $request)
+    {
+        $value = $request->search;
+        $getCategories = Category::where('status',1)->with('products')->get();
+
+        $distributor_searchs = Distribution::where(function($query) use($value){
+            $query->where('name','LIKE','%'.$value.'%')->orWhere('website','LIKE','%'.$value.'%')->orWhere('address','LIKE','%'.$value.'%');
+        })->where('status',1)->paginate(5);
+
+        return view('users.distribution.list_search')->with(compact('distributor_searchs','getCategories'));
     }
 }

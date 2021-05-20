@@ -36,7 +36,6 @@
                     
                     @if (count($posts)!=0)
                         @foreach ($posts as $post)
-                            @if($post->status!=0 && $post->type!='about')
                             <article class="blog_item">
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0" src="{{ asset('images/front_images/post/'.$post->image) }}" alt="">
@@ -54,7 +53,6 @@
                                     </ul>
                                 </div>
                             </article>
-                            @endif
                         @endforeach
 
                         <nav class="blog-pagination justify-content-center d-flex">

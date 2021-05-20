@@ -34,6 +34,10 @@ Route::match(['get','post'],'user-search-post','UserController@searchPost')->nam
 // Search product
 Route::match(['get','post'],'user-search-product','UserController@searchProduct')->name('user.search.product');
 
+// Distribution route
+Route::get('user-distributor-list','UserController@viewDistributor')->name('user.distributor');
+Route::match(['get','post'],'user-distributor-search','UserController@searchDistributor')->name('user.distributor.search');
+
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -85,6 +89,12 @@ Route::prefix('admin')->group(function() {
         Route::post('admin-post-update/{id}','Auth\AdminController@updatePost')->name('admin.post.update');
         Route::post('admin-post-store','Auth\AdminController@storePost')->name('admin.post.store');
 
+        // Distribution route
+        Route::get('admin-distributor-index','Auth\AdminController@distributorIndex')->name('admin.distributor');
+        Route::get('admin-distributor-add','Auth\AdminController@addDistributor')->name('admin.distributor.add');
+        Route::post('admin-distributor-store','Auth\AdminController@storeDistributor')->name('admin.distributor.store');
+        Route::post('admin-distributor-update/{id}','Auth\AdminController@updateDistributor')->name('admin.distributor.update');
+        Route::get('admin-distributor-delete/{id}','Auth\AdminController@deleteDistributor')->name('admin.distributor.delete');
     });
 
 });

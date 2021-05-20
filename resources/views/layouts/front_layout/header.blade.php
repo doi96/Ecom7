@@ -17,7 +17,7 @@
                                         <ul class="submenu">
                                             <li><a href="{{ route('user.about') }}">Giới thiệu</a></li>
                                             <li><a href="blog-details.html">Chính sách phân phối</a></li>
-                                            <li><a href="blog-details.html">Danh sách nhà phân phối</a></li>
+                                            <li><a href="{{ route('user.distributor') }}">Danh sách nhà phân phối</a></li>
                                         </ul>
                                     </li>
                                     <li class="hot"><a href="{{ route('product.all') }}">Sản phẩm</a>

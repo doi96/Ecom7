@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\AdminProfile;
+use App\Distribution;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Post;
@@ -288,4 +289,64 @@ class AdminController extends Controller
         return redirect()->route('admin.post.all');
 
     }
+
+    public function distributorIndex()
+    {
+        $distributions = Distribution::all();
+        return view('admins.distribution.index')->with(compact('distributions'));
+    }
+
+    public function addDistributor()
+    {
+        return view('admins.distribution.add_distribution');
+    }
+
+    public function storeDistributor(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'area' => 'required',
+            'address' => 'required',
+            'phone' => 'required|numeric',
+        ]);
+
+        $data = $request->all();
+        $distributor = new Distribution();
+        $distributor->name = $data['name'];
+        $distributor->area = isset($data['area'])?$data['area']:'orther';
+        $distributor->address = $data['address'];
+        $distributor->phone = $data['phone'];
+        $distributor->website = $data['website'];
+        $distributor->status = isset($data['status'])?$data['status']:0;
+        $distributor->save();
+
+        Session::flash('success_message','Distributor has been added successfully!');
+        return redirect()->route('admin.distributor');
+    }
+
+    public function updateDistributor($id,Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'area' => 'required',
+            'address' => 'required',
+            'phone' => 'required|numeric',
+        ]);
+
+        $data = $request->all();
+        $status = isset($data['status'])?$data['status']:0;
+        $distributor = Distribution::where('id',$id)->update(['name'=>$data['name'],'area'=>$data['area'],'address'=>$data['address'],'phone'=>$data['phone'],'website'=>$data['website'],'status'=>$status]);
+        Session::flash('success_message','Distributor has been updated successfull!');
+
+        return back();
+    }
+
+    public function deleteDistributor($id)
+    {
+        $distributor = Distribution::where('id',$id)->delete();
+        Session::flash('success_message','Distributor has been deleted successfull!');
+
+        return back();
+    }
+
 }
