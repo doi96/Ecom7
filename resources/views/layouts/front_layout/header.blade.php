@@ -16,7 +16,7 @@
                                     <li><a href="#">Về GCAPVN</a>
                                         <ul class="submenu">
                                             <li><a href="{{ route('user.about') }}">Giới thiệu</a></li>
-                                            <li><a href="blog-details.html">Chính sách phân phối</a></li>
+                                            <li><a href="{{ route('user.distribution') }}">Chính sách phân phối</a></li>
                                             <li><a href="{{ route('user.distributor') }}">Danh sách nhà phân phối</a></li>
                                         </ul>
                                     </li>

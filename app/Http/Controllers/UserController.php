@@ -6,6 +6,7 @@ use App\Category;
 use App\Distribution;
 use App\Post;
 use App\Product;
+use App\ReturnPolicy;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -104,5 +105,17 @@ class UserController extends Controller
         })->where('status',1)->paginate(5);
 
         return view('users.distribution.list_search')->with(compact('distributor_searchs','getCategories'));
+    }
+
+    public function viewDistribution()
+    {
+        $getCategories = Category::where('status',1)->with('products')->get();
+
+        $distri_infor = ReturnPolicy::where('status',1)->where('type','infor')->orderByDesc('created_at','desc')->limit(1)->get();
+        $distri_shipping = ReturnPolicy::where('status',1)->where('type','shipping')->orderByDesc('created_at','desc')->limit(1)->get();
+        $distri_commit = ReturnPolicy::where('status',1)->where('type','commit')->orderByDesc('created_at','desc')->limit(1)->get();
+        $distri_return = ReturnPolicy::where('status',1)->where('type','return')->orderByDesc('created_at','desc')->limit(1)->get();
+
+        return view('users.distribution.distribution_policy')->with(compact('getCategories','distri_infor','distri_shipping','distri_commit','distri_return'));
     }
 }
