@@ -91,7 +91,7 @@
                                     </div>
                                     <div class="product-caption">
                                         <h3><a href="product_details.html">{{ $getNewProduct->name }}</a></h3>
-                                        <span>{{ number_format($getNewProduct->price) }} vnd</span>
+                                        <span>Liên hệ để biết giá</span>
                                     </div>
                                 </div>
                             </div>
@@ -161,7 +161,7 @@
                                 </div>
                                 <div class="popular-caption">
                                     <h3><a href="product_details.html">{{ $getFeatureProduct->name }}</a></h3>
-                                    <span>{{ number_format($getFeatureProduct->price) }} vnd</span>
+                                    <span>Liên hệ để biết giá</span>
                                 </div>
                             </div>
                         </div>

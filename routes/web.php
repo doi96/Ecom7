@@ -85,6 +85,8 @@ Route::prefix('admin')->group(function() {
         Route::post('admin-post-update/{id}','Auth\AdminController@updatePost')->name('admin.post.update');
         Route::post('admin-post-store','Auth\AdminController@storePost')->name('admin.post.store');
 
+        // Distribution route
+        
     });
 
 });
