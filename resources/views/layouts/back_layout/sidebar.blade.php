@@ -58,6 +58,21 @@
             </div>
         </div>
     </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDistribution"
+            aria-expanded="true" aria-controls="collapseDistribution">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <span>Distribution</span>
+        </a>
+        <div id="collapseDistribution" class="collapse" aria-labelledby="headingDistribution"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Distribution management:</h6>
+                <a class="collapse-item" href="{{ route('admin.distributor') }}">Distributor</a>
+                {{-- <a class="collapse-item" href="{{ route('admin.post.all') }}">Post</a> --}}
+            </div>
+        </div>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
