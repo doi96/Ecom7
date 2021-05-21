@@ -36,6 +36,8 @@ Route::match(['get','post'],'user-search-product','UserController@searchProduct'
 
 // Distribution route
 Route::get('user-distributor-list','UserController@viewDistributor')->name('user.distributor');
+
+Route::get('user-distribution-list','UserController@viewDistribution')->name('user.distribution');
 Route::match(['get','post'],'user-distributor-search','UserController@searchDistributor')->name('user.distributor.search');
 
 Auth::routes();
@@ -95,6 +97,16 @@ Route::prefix('admin')->group(function() {
         Route::post('admin-distributor-store','Auth\AdminController@storeDistributor')->name('admin.distributor.store');
         Route::post('admin-distributor-update/{id}','Auth\AdminController@updateDistributor')->name('admin.distributor.update');
         Route::get('admin-distributor-delete/{id}','Auth\AdminController@deleteDistributor')->name('admin.distributor.delete');
+
+        // Distribution policy
+        Route::get('admin-distribution-returnpolicy','Auth\AdminController@retrunPolicy')->name('admin.distribution.return');
+        Route::get('admin-distribution-policy-create','Auth\AdminController@createPolicy')->name('admin.distribution.policy.create');
+        Route::post('admin-distribution-policy-store','Auth\AdminController@storePolicy')->name('admin.distribution.policy.store');
+        Route::get('admin-distribution-policy-read/{id}','Auth\AdminController@readPolicy')->name('admin.distribution.policy.read');
+        Route::get('admin-distribution-policy-delete/{id}','Auth\AdminController@deletePolicy')->name('admin.distribution.policy.delete');
+        Route::post('admin-distribution-policy-update/{id}','Auth\AdminController@updatePolicy')->name('admin.distribution.policy.update');
+        Route::get('admin-distribution-policy-edit/{id}','Auth\AdminController@editPolicy')->name('admin.distribution.policy.edit');
+
     });
 
 });

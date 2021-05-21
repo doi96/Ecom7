@@ -69,7 +69,8 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Distribution management:</h6>
                 <a class="collapse-item" href="{{ route('admin.distributor') }}">Distributor</a>
-                {{-- <a class="collapse-item" href="{{ route('admin.post.all') }}">Post</a> --}}
+
+                <a class="collapse-item" href="{{ route('admin.distribution.return') }}">Return Policy</a>
             </div>
         </div>
     </li>

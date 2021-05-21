@@ -7,6 +7,7 @@ use App\Distribution;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Post;
+use App\ReturnPolicy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -347,6 +348,73 @@ class AdminController extends Controller
         Session::flash('success_message','Distributor has been deleted successfull!');
 
         return back();
+    }
+
+    public function retrunPolicy()
+    {
+        $returnPolicies = ReturnPolicy::all();
+        return view('admins.distribution.return_policy')->with(compact('returnPolicies'));
+    }
+
+    public function createPolicy()
+    {
+        return view('admins.distribution.create_policy');
+    }
+
+    public function storePolicy(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'type' => 'required',
+        ]);
+        
+        $data = $request->all();
+        $policy = new ReturnPolicy();
+        $policy->title = $data['title'];
+        $policy->description = $data['description'];
+        $policy->type = $data['type'];
+        $policy->status = isset($data['status'])?$data['status']:0;
+        $policy->save();
+
+        Session::flash('success_message','Policy has been added successfully!');
+        return redirect()->route('admin.distribution.return');
+    }
+
+    public function readPolicy($id)
+    {
+        $policy = ReturnPolicy::where('id',$id)->first();
+        return view('admins.distribution.read_policy')->with(compact('policy'));
+    }
+
+    public function editPolicy($id)
+    {
+        $policy = ReturnPolicy::where('id',$id)->first();
+        return view('admins.distribution.edit_policy')->with(compact('policy'));
+    }
+
+    public function updatePolicy($id,Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'type' => 'required',
+        ]);
+        $data = $request->all();
+        $status = isset($data['status'])?$data['status']:0;
+
+        $policy = ReturnPolicy::where('id',$id)->update(['title'=>$data['title'],'type'=>$data['type'],'description'=>$data['description'],'status'=>$status]);
+        Session::flash('success_message','Policy has been updated successfully!');
+
+        return redirect()->route('admin.distribution.return');
+    }
+
+    public function deletePolicy($id)
+    {
+        $policy = ReturnPolicy::where('id',$id)->delete();
+        Session::flash('success_message','Policy has been deleted successfully!');
+
+        return redirect()->route('admin.distribution.return');
     }
 
 }
