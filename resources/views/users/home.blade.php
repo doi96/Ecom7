@@ -142,7 +142,7 @@
                     <div class="col-xl-7 col-lg-8 col-md-10">
                         <div class="section-tittle mb-70 text-center">
                             <h2>Sản phẩm nổi bật</h2>
-                            <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                            <p>Những sản phẩm nổi bật của công ty. Vui lòng nhấp vào sản phẩm để biết thêm thông tin chi tiết của từng loại sản phẩm!</p>
                         </div>
                     </div>
                 </div>
@@ -199,35 +199,47 @@
         <!--? Watch Choice  Start-->
         <div class="watch-area section-padding30">
             <div class="container">
-                <div class="row align-items-center justify-content-between padding-130">
-                    <div class="col-lg-5 col-md-6">
-                        <div class="watch-details mb-40">
-                            <h2>Bài viết mới</h2>
-                            <p>Enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-                            <a href="shop.html" class="btn">Xem ngay</a>
+                @if (count($getPost)!=0)
+                    @foreach ($getPost as $item)
+                        <div class="row align-items-center justify-content-between padding-130">
+                            <div class="col-lg-5 col-md-6">
+                                <div class="watch-details mb-40">
+                                    <h2>Bài viết mới</h2>
+                                    <p>{{ $item->title}}</p>
+                                    <a href="{{ route('user.post.read',[$item->type,$item->id]) }}" class="btn">Xem ngay</a>
+                                </div>
+                            </div>
+                            @if(isset($item->image))
+                            <div class="col-lg-6 col-md-6 col-sm-10">
+                                <div class="choice-watch-img mb-40">
+                                    <img src="{{ asset('images/front_images/post/'.$item->image) }}" alt="">
+                                </div>
+                            </div>
+                            @endif
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-10">
-                        <div class="choice-watch-img mb-40">
-                            <img src="images/front_images/show/3.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-lg-6 col-md-6 col-sm-10">
-                        <div class="choice-watch-img mb-40">
+                    @endforeach
+                @endif
 
-                            <img src="images/front_images/show/4.jpg" alt="">
+                @if (count($getNews)!=0)
+                    @foreach ($getNews as $item)
+                        <div class="row align-items-center justify-content-between">
+                            @if(isset($item->image))
+                            <div class="col-lg-6 col-md-6 col-sm-10">
+                                <div class="choice-watch-img mb-40">
+                                    <img src="{{ asset('images/front_images/post/'.$item->image) }}" alt="">
+                                </div>
+                            </div>
+                            @endif
+                            <div class="col-lg-5 col-md-6">
+                                <div class="watch-details mb-40">
+                                    <h2>Tin tức mới</h2>
+                                    <p>{{ $item->title}}</p>
+                                    <a href="{{ route('user.post.read',[$item->type,$item->id]) }}" class="btn">Xem ngay</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-5 col-md-6">
-                        <div class="watch-details mb-40">
-                            <h2>Bài viết mới</h2>
-                            <p>Enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-                            <a href="shop.html" class="btn">Xem ngay</a>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
         <!-- Watch Choice  End-->
