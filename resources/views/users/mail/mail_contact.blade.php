@@ -8,7 +8,8 @@
     <p> Tên: {{ $name }} </p>
     <p> Số điện thoại: {{ $phone }} </p>
     <p> Email: {{ $email }} </p>
-    <p style="background: gray;">Nội dung: {!! $content !!}</p>
+    <p>Nội dung:</p>
+    <p style="background: gainsboro">{{ $content }}</p>
     <p>Thank you!</p>
 </body>
 </html>
