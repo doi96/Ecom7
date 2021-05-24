@@ -39,9 +39,22 @@
                         <input type="file" name="image" class="form-control" id="image">
                     </div>
                     <div class="form-group">
-                        <label for="description">Link</label>
-                        <input type="text" name="link" class="form-control" id="link">
+                        <label for="type_slide">Type slide</label>
+                        <select class="form-control" id="type_slide" name="type_slide" >
+                            <option > -- Select type -- </option>
+                            <option value="orther">Post Orther</option>
+                            <option value="tutorial">Post Tutorial</option>
+                            <option value="uses">Post Uses</option>
+                            <option value="news">Post News</option>
+                            <option value="product">Product</option>
+                            <option value="slide">Slide</option>
+                        </select>
                     </div>
+                    
+                    <div class="form-group" id="post_id">
+                        @include('admins.slides.append_link')
+                    </div>
+
                     <div class="form-check">
                         <input name="status" class="form-check-input" type="checkbox" value="1" id="defaultCheck1">
                         <label class="form-check-label" for="defaultCheck1">

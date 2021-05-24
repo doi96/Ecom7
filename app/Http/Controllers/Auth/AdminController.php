@@ -7,6 +7,7 @@ use App\Distribution;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Post;
+use App\Product;
 use App\ReturnPolicy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -100,7 +101,6 @@ class AdminController extends Controller
     public function slider()
     {
         $slides = DB::table('slides')->get();
-        // dd($slides);
         return view('admins.slides.index')->with(compact('slides'));
     }
 
@@ -109,13 +109,43 @@ class AdminController extends Controller
         return view('admins.slides.create_slide');
     }
 
+    public function getTypeSlide(Request $request){
+ 
+        $data = $request->all();
+        if ($data['type_slide']=='uses') {
+                $post = Post::where(function($query) {
+                $query->where('type','uses');
+                })->where('status',1)->orderByDesc('created_at','desc')->get();
+        }elseif ($data['type_slide']=='tutorial') {
+            $post = Post::where(function($query) {
+                $query->where('type','tutorial');
+                })->where('status',1)->orderByDesc('created_at','desc')->get();
+        }elseif ($data['type_slide']=='orther') {
+            $post = Post::where(function($query) {
+                $query->where('type','orther');
+                })->where('status',1)->orderByDesc('created_at','desc')->get();
+        }elseif ($data['type_slide']=='product') {
+            $post = Product::where('status',1)->orderByDesc('created_at','desc')->get();
+        }elseif ($data['type_slide']=='news') {
+            $post = Post::where(function($query) {
+                $query->where('type','news');
+                })->where('status',1)->orderByDesc('created_at','desc')->get();
+        }else {
+            $post = NULL;
+        }
+
+        $post = json_decode(json_encode($post),true);
+        return response()->json($post);
+    }
+
     public function storeSlider(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'required|max:30',
+            'description' => 'required|max:210',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'link' => 'required'
+            'post_detail' => 'required',
+            'type_slide' => 'required'
         ]);
 
         $imageName = time().'.'.$request->image->extension();  
@@ -123,47 +153,14 @@ class AdminController extends Controller
 
         //move image to folder
         $large_image_path = 'images/front_images/slider/'.$imageName;
-        Image::make($image_tmp)->save($large_image_path);
+        Image::make($image_tmp)->resize(720,480)->save($large_image_path);
 
         $data = $request->all();
         $status = isset($data['status'])?$data['status'] : 0 ;
-
-        $slides = DB::table('slides')->insert(['title'=>$data['title'],'description'=>$data['description'],'image'=>$imageName,'link'=>$data['link'],'status'=>$status]);
+        $slides = DB::table('slides')->insert(['title'=>$data['title'],'description'=>$data['description'],'image'=>$imageName,'type'=>$data['type_slide'],'link'=>$data['post_detail'],'status'=>$status]);
         
         Session::flash('success_message','Slide has been added successfully!');
         return redirect()->route('admin.slider');
-    }
-
-    public function editSlider(Request $request,$id)
-    {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'link' => 'required'
-        ]);
-        if (isset($request->image)) {
-            
-            $imageName = time().'.'.$request->image->extension();  
-            $image_tmp = $request->file('image');
-
-            //move image to folder
-            $large_image_path = 'images/front_images/slider/'.$imageName;
-            Image::make($image_tmp)->save($large_image_path);
-        
-        }else {
-            $getImage = DB::table('slides')->where('id',$id)->first();
-            $imageName = $getImage->image;
-        }
-
-        $data = $request->all();
-        $status = isset($data['status'])?$data['status'] : 0 ;
-
-        $slides = DB::table('slides')->where('id',$id)->update(['title'=>$data['title'],'description'=>$data['description'],'image'=>$imageName,'link'=>$data['link'],'status'=>$status]);
-
-        Session::flash('success_message','Slide has been updated successfully!');
-
-        return back();
     }
 
     public function deleteSlider($id)
@@ -283,9 +280,6 @@ class AdminController extends Controller
         $post = Post::where('id',$id)->update(['title'=>$data['title'],'type'=>$data['type_post'],'description'=>$data['description'],'status'=>$status,'image'=>$imageName,'video'=>$videoName]);
 
         Session::flash('success_message','Post has been updated successfully!');
-        // $imageName = Post::where('id',$id)->select('image')->first();
-        // $imageName = $image ->image;
-        // echo $imageName;die;
 
         return redirect()->route('admin.post.all');
 

@@ -112,6 +112,7 @@
 
     <script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('/ckfinder/ckfinder.js') }}"></script>
+    <script src="{{ asset('js/back_js/admin_script.js') }}"></script>
     <script>
         CKEDITOR.replace('descriptionPost',{
         filebrowserBrowseUrl: '{{ asset("ckfinder/ckfinder.html") }}',
