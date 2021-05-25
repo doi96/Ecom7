@@ -28,6 +28,13 @@ class UserController extends Controller
         return view('users.products.all_products')->with(compact('products','getCategories'));
     }
 
+    public function productDetail($id)
+    {
+        $getCategories = Category::where('status',1)->with('products')->get();
+        $product = Product::where('id',$id)->where('status',1)->first();
+        return view('users.products.product_detail',compact('getCategories','product'));
+    }
+
     public function abouts()
     {
         $getCategories = Category::where('status',1)->with('products')->get();
