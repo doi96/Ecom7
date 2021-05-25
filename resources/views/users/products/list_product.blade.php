@@ -50,14 +50,14 @@
                                             <div class="popular-img">
                                                 <img src="{{ asset('images/front_images/product/small/'.$item->image) }}" alt="">
                                                 <div class="img-cap">
-                                                    <span>Xem chi tiết</span>
+                                                    <a href="{{ route('user.product.detail',$item->id) }}"><span>Xem chi tiết</span></a>
                                                 </div>
                                                 <div class="favorit-items">
                                                     <span class="flaticon-heart"></span>
                                                 </div>
                                             </div>
                                             <div class="popular-caption">
-                                                <h3><a href="product_details.html">{{ $item->name }}</a></h3>
+                                                <h3><a href="{{ route('user.product.detail',$item->id) }}">{{ $item->name }}</a></h3>
                                                 <span>Liên hệ để biết giá</span>
                                             </div>
                                         </div>
