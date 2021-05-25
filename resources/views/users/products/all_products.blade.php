@@ -52,8 +52,8 @@
                                             </div>
                                         </div>
                                         <div class="popular-caption">
-                                            <h3><a href="product_details.html">{{ $item->name }}</a></h3>
-                                            <span>{{ number_format($item->price) }} vnd</span>
+                                            <h3><a href="{{ route('user.product.detail',$item->id) }}">{{ $item->name }}</a></h3>
+                                            <span>Liên hệ để biết giá</span>
                                         </div>
                                     </div>
                                 </div>

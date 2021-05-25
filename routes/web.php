@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/','HomeController@index')->name('user.home');
 Route::get('product-category/{id}','UserController@getProductbyCategory')->name('product.category');
 Route::get('product-all','UserController@allProduct')->name('product.all');
+Route::get('user-product-detail/{id}','UserController@productDetail')->name('user.product.detail');
 
 // About route
 Route::get('user-about','UserController@abouts')->name('user.about');

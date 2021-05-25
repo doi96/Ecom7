@@ -14,6 +14,7 @@ class UserController extends Controller
     public function getProductbyCategory($id)
     {
         $getCategories = Category::where('status',1)->with('products')->get();
+        
         $getProducts = Product::where('category_id',$id)->where('status',1)->get();
         $IdActive = $id;
         // dd($getCategories);
@@ -28,12 +29,29 @@ class UserController extends Controller
         return view('users.products.all_products')->with(compact('products','getCategories'));
     }
 
+    public function productDetail($id)
+    {
+        $getCategories = Category::where('status',1)->with('products')->get();
+        $product = Product::where('id',$id)->where('status',1)->first();
+
+        $meta_title = 'GCAPVN | Chi tiết sản phẩm | CÔNG TY TNHH GCAPVN';
+        $meta_description = $product->description;
+        $meta_keywords = 'GCAPVN, RONG NHO VN, RONG NHO KHANH HOA, RONG NHO TUOI, RONG NHO KHO, RONG NHO BOT, RONG NHO DONG GOI,'.$product->name;
+
+        return view('users.products.product_detail',compact('getCategories','product','meta_title','meta_description','meta_keywords'));
+    }
+
     public function abouts()
     {
         $getCategories = Category::where('status',1)->with('products')->get();
         $about = Post::where('type','about')->where('status',1)->orderByDesc('created_at','desc')->first();
 
-        return view('users.about.about')->with(compact('about','getCategories'));
+        $meta_title = 'GCAPVN | Giới thiệu | CÔNG TY TNHH GCAPVN';
+        $getAbout = Post::where('type','about')->where('status',1)->orderByDesc('created_at','desc')->first();
+        $meta_description = $getAbout->description;
+        $meta_keywords = 'GCAPVN, RONG NHO VN, RONG NHO KHANH HOA, RONG NHO TUOI, RONG NHO KHO, RONG NHO BOT, RONG NHO DONG GOI';
+
+        return view('users.about.about')->with(compact('about','getCategories','meta_title','meta_description','meta_keywords'));
     }
 
     public function getPost($type)
@@ -51,7 +69,12 @@ class UserController extends Controller
         $post = Post::where('status',1)->where('id',$id)->first();
         $samePosts = Post::where('status',1)->where('type',$type)->orderByDesc('created_at','desc')->limit(10)->get();
 
-        return view('users.post.read_post')->with(compact('post','type','getCategories','samePosts'));
+        $meta_title = 'GCAPVN | Xem bài viết | CÔNG TY TNHH GCAPVN';
+        $getAbout = Post::where('status',1)->where('id',$id)->first();
+        $meta_description = $getAbout->description;
+        $meta_keywords = 'GCAPVN, RONG NHO VN, RONG NHO KHANH HOA, RONG NHO TUOI, RONG NHO KHO, RONG NHO BOT, RONG NHO DONG GOI, PHAN PHOI RONG NHO';
+
+        return view('users.post.read_post')->with(compact('post','type','getCategories','samePosts','meta_title','meta_description','meta_keywords'));
     }
 
     public function searchPost(Request $request)
@@ -75,7 +98,12 @@ class UserController extends Controller
             $query->where('name','LIKE','%'.$value.'%')->orWhere('description','LIKE','%'.$value.'%');
         })->where('status',1)->paginate(6);
 
-        return view('users.products.list_search_product')->with(compact('products','value','getCategories'));
+        $meta_title = 'GCAPVN | Tìm sản phẩm | CÔNG TY TNHH GCAPVN';
+        $getAbout = Post::where('type','about')->where('status',1)->orderByDesc('created_at','desc')->first();
+        $meta_description = $getAbout->description;
+        $meta_keywords = 'GCAPVN, RONG NHO VN, RONG NHO KHANH HOA, RONG NHO TUOI, RONG NHO KHO, RONG NHO BOT, RONG NHO DONG GOI, PHAN PHOI RONG NHO';
+
+        return view('users.products.list_search_product')->with(compact('products','value','getCategories','meta_title','meta_description','meta_keywords'));
     }
 
     public function viewDistributor()
@@ -86,7 +114,12 @@ class UserController extends Controller
         $distri_middle = Distribution::where('status',1)->where('area','middle')->get();
         $distri_orther = Distribution::where('status',1)->where('area','orther')->get();
 
-        return view('users.distribution.distributor_list')->with(compact('getCategories','distri_north','distri_south','distri_middle','distri_orther'));
+        $meta_title = 'GCAPVN | Phân phối | CÔNG TY TNHH GCAPVN';
+        $getAbout = Post::where('type','about')->where('status',1)->orderByDesc('created_at','desc')->first();
+        $meta_description = $getAbout->description;
+        $meta_keywords = 'GCAPVN, RONG NHO VN, RONG NHO KHANH HOA, RONG NHO TUOI, RONG NHO KHO, RONG NHO BOT, RONG NHO DONG GOI, PHAN PHOI RONG NHO';
+
+        return view('users.distribution.distributor_list')->with(compact('getCategories','distri_north','distri_south','distri_middle','distri_orther','meta_title','meta_description','meta_keywords'));
     }
 
     public function searchDistributor(Request $request)
@@ -98,7 +131,12 @@ class UserController extends Controller
             $query->where('name','LIKE','%'.$value.'%')->orWhere('website','LIKE','%'.$value.'%')->orWhere('address','LIKE','%'.$value.'%');
         })->where('status',1)->paginate(5);
 
-        return view('users.distribution.list_search')->with(compact('distributor_searchs','getCategories'));
+        $meta_title = 'GCAPVN | Tìm địa nhà phân phối | CÔNG TY TNHH GCAPVN';
+        $getAbout = Post::where('type','about')->where('status',1)->orderByDesc('created_at','desc')->first();
+        $meta_description = $getAbout->description;
+        $meta_keywords = 'GCAPVN, RONG NHO VN, RONG NHO KHANH HOA, RONG NHO TUOI, RONG NHO KHO, RONG NHO BOT, RONG NHO DONG GOI, PHAN PHOI RONG NHO';
+        
+        return view('users.distribution.list_search')->with(compact('distributor_searchs','getCategories','meta_title','meta_description','meta_keywords'));
     }
 
     public function viewDistribution()
@@ -110,6 +148,11 @@ class UserController extends Controller
         $distri_commit = ReturnPolicy::where('status',1)->where('type','commit')->orderByDesc('created_at','desc')->limit(1)->get();
         $distri_return = ReturnPolicy::where('status',1)->where('type','return')->orderByDesc('created_at','desc')->limit(1)->get();
 
-        return view('users.distribution.distribution_policy')->with(compact('getCategories','distri_infor','distri_shipping','distri_commit','distri_return'));
+        $meta_title = 'GCAPVN | Phân phối | CÔNG TY TNHH GCAPVN';
+        $getAbout = Post::where('type','about')->where('status',1)->orderByDesc('created_at','desc')->first();
+        $meta_description = $getAbout->description;
+        $meta_keywords = 'GCAPVN, RONG NHO VN, RONG NHO KHANH HOA, RONG NHO TUOI, RONG NHO KHO, RONG NHO BOT, RONG NHO DONG GOI, PHAN PHOI RONG NHO';
+
+        return view('users.distribution.distribution_policy')->with(compact('getCategories','distri_infor','distri_shipping','distri_commit','distri_return','meta_title','meta_description','meta_keywords'));
     }
 }
