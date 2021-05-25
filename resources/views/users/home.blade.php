@@ -54,7 +54,13 @@
                                                 <p data-animation="fadeInLeft" data-delay=".4s" data-duration="100ms">{{ $slide->description }}</p>
                                                 <!-- Hero-btn -->
                                                 <div class="hero__btn" data-animation="fadeInLeft" data-delay=".4s" data-duration="100ms">
-                                                    <a href="{{$slide->link}}" class="btn hero-btn">Xem ngay</a>
+                                                    @if ($slide->type=='uses'||$slide->type=='orther'||$slide->type=='tutorla'||$slide->type=='news')
+                                                        <a href="{{ route('user.post.read',[$slide->type,$slide->link]) }}" class="btn hero-btn">Xem ngay</a>
+                                                    @elseif ($slide->type=='product')
+                                                        <a href="{{ route('user.product.detail',$slide->link) }}" class="btn hero-btn">Xem ngay</a>
+                                                    @else
+                                                    
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -90,7 +96,7 @@
                                         <img src="{{ asset('images/front_images/product/medium/'.$getNewProduct->image) }}" alt="">
                                     </div>
                                     <div class="product-caption">
-                                        <h3><a href="product_details.html">{{ $getNewProduct->name }}</a></h3>
+                                        <h3><a href="{{ route('user.product.detail',$getNewProduct->id) }}">{{ $getNewProduct->name }}</a></h3>
                                         <span>Liên hệ để biết giá</span>
                                     </div>
                                 </div>
@@ -153,14 +159,14 @@
                                 <div class="popular-img">
                                     <img src="{{ asset('images/front_images/product/small/'.$getFeatureProduct->image) }}" alt="">
                                     <div class="img-cap">
-                                        <a href="google.com"><span>Xem chi tiết</span></a>
+                                        <a href="{{ route('user.product.detail',$getFeatureProduct->id) }}"><span>Xem chi tiết</span></a>
                                     </div>
                                     <div class="favorit-items">
-                                        <a href="youtube.com"><span class="flaticon-heart"></span></a>
+                                        <a href="{{ route('user.product.detail',$getFeatureProduct->id) }}"><span class="flaticon-heart"></span></a>
                                     </div>
                                 </div>
                                 <div class="popular-caption">
-                                    <h3><a href="product_details.html">{{ $getFeatureProduct->name }}</a></h3>
+                                    <h3><a href="{{ route('user.product.detail',$getFeatureProduct->id) }}">{{ $getFeatureProduct->name }}</a></h3>
                                     <span>Liên hệ để biết giá</span>
                                 </div>
                             </div>

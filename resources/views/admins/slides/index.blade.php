@@ -35,6 +35,7 @@
                         <tr>
                             <th>Number</th>
                             <th>Title</th>
+                            <th>Type</th>
                             <th>Image</th>
                             <th>Description</th>
                             <th>Status</th>
@@ -46,6 +47,7 @@
                         <tr>
                             <th>Number</th>
                             <th>Title</th>
+                            <th>Type</th>
                             <th>Image</th>
                             <th>Description</th>
                             <th>Status</th>
@@ -60,66 +62,19 @@
                             <tr>
                                 <td>{{ $i }}</td>
                                 <td>{{ $slide->title }}</td>
+                                <td>{{ $slide->type }}</td>
                                 <td><img src="{{ asset('images/front_images/slider/'.$slide->image) }}" style="width: 120px;"></td>
                                 <td>{{ $slide->description }}</td>
                                 <td>{{ $slide->status }}</td>
                                 <td>{{ $slide->link }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{ $slide->id }}">
-                                        <i class="fa fa-wrench" aria-hidden="true"></i> Edit
-                                    </button>
+                                    
                                     <button class="btn btn-danger" href="#" data-toggle="modal" data-target="#deleteModal-{{$slide->id}}">
                                         <i class="fa fa-trash" aria-hidden="true"></i> Delete
                                     </button>
                                 </td>
                             </tr>
                         
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal-{{ $slide->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Edit Slide</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-
-                                        <form action="{{ route('admin.slider.edit',$slide->id) }}" method="POST" enctype="multipart/form-data">@csrf
-                                            <div class="form-group">
-                                                <label for="title">Title</label>
-                                                <input value="{{ $slide->title }}" name="title" type="text" class="form-control" id="title">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="title">Image</label>
-                                                <img src="{{ asset('images/front_images/slider/'.$slide->image) }}" style="width: 50%">
-                                                <input value="{{ $slide->image }}" name="image" type="file" class="form-control" id="image">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="description">Description</label>
-                                                <textarea name="description" class="form-control" id="description" rows="3">{{$slide->description}}</textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="title">Link</label>
-                                                <input value="{{ $slide->link }}" name="link" type="text" class="form-control" id="link">
-                                            </div>
-                                            <div class="form-check">
-                                                <input name="status" class="form-check-input" type="checkbox" id="status" value="1" @if($slide->status ==1) checked @endif >
-                                                <label class="form-check-label" for="status">
-                                                    Activate
-                                                </label>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                            <!-- Delete Modal-->
                             <div class="modal fade" id="deleteModal-{{$slide->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog" role="document">

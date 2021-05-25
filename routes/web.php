@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/','HomeController@index')->name('user.home');
 Route::get('product-category/{id}','UserController@getProductbyCategory')->name('product.category');
 Route::get('product-all','UserController@allProduct')->name('product.all');
+Route::get('user-product-detail/{id}','UserController@productDetail')->name('user.product.detail');
 
 // About route
 Route::get('user-about','UserController@abouts')->name('user.about');
@@ -77,6 +78,7 @@ Route::prefix('admin')->group(function() {
         Route::post('admin-slider-store','Auth\AdminController@storeSlider')->name('admin.slider.store');
         Route::post('admin-slider-edit/{id}','Auth\AdminController@editSlider')->name('admin.slider.edit');
         Route::get('admin-slider-delete/{id}','Auth\AdminController@deleteSlider')->name('admin.slider.delete');
+        Route::post('admin-slider-getType/','Auth\AdminController@getTypeSlide')->name('admin.slider.getType');
 
         //Product route
         Route::get('admin-product','ProductController@index')->name('admin.product');
