@@ -165,6 +165,12 @@ class AdminController extends Controller
 
     public function deleteSlider($id)
     {
+        //delete image slide
+        $getImageSilde = DB::table('slides')->where('id',$id)->select('image')->first();
+        if (file_exists('images/front_images/slider/'.$getImageSilde->image)) {
+            unlink('images/front_images/slider/'.$getImageSilde->image);
+        }
+
         $slide = DB::table('slides')->where('id',$id)->delete();
         Session::flash('success_message','Slide has been deleted sucessfully!');
 
@@ -203,7 +209,7 @@ class AdminController extends Controller
 
         if (isset($request->video)) {
             $videoName = time().'.'.$request->video->extension();  
-            $request->video->move(public_path('videos/front_videos/products'), $videoName);
+            $request->video->move(public_path('videos/front_videos/post'), $videoName);
         }
 
         $data = $request->all();
@@ -230,7 +236,27 @@ class AdminController extends Controller
 
     public function deletePost($id)
     {
+        //delete image and video post
+        //delete image slide
+        $getInforPost = Post::where('id',$id)->first();
+        if($getInforPost->image!=null){
+            if (file_exists('images/front_images/post/'.$getInforPost->image)) {
+                unlink('images/front_images/post/'.$getInforPost->image);
+            }
+        }
+
+        if($getInforPost->video!=null){
+            if (file_exists('videos/front_videos/post/'.$getInforPost->video)) {
+                unlink('videos/front_videos/post/'.$getInforPost->video);
+            }
+        }
+
         $post = Post::where('id',$id)->delete();
+
+        //delete slide
+        $getSlidePost = DB::table('slides')->where(function($query) {
+            $query->where('type','uses')->orWhere('type','news')->orWhere('type','tutorial')->orWhere('type','orther');
+        })->where('link',$id)->delete();
 
         Session::flash('success_message','The Post has been deleted successfully!');
 

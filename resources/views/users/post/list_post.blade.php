@@ -42,7 +42,7 @@
                                 </div>
 
                                 <div class="blog_details">
-                                    <a class="d-inline-block" href="single-blog.html">
+                                    <a class="d-inline-block" href="{{ route('user.post.read',[$post->type,$post->id]) }}">
                                         <h2>{{ $post->title }}</h2>
                                     </a>
                                     <p class="date">{{ $post->created_at }} </p>
@@ -71,6 +71,11 @@
                     <aside class="single_sidebar_widget post_category_widget">
                         <h4 class="widget_title">Danh mục</h4>
                         <ul class="list cat-list">
+                            <li>
+                                <a href="{{ route('user.post','news') }}" class="d-flex">
+                                    <p>News</p>
+                                </a>
+                            </li>
                             <li>
                                 <a href="{{ route('user.post','uses') }}" class="d-flex">
                                     <p>Công dụng</p>
