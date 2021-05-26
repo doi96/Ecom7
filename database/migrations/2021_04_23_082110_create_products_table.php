@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->string('video')->nullable();
             $table->tinyInteger('status');
             $table->tinyInteger('feature');
-            $table->double('price', 10, 2);
+            $table->double('price', 10, 2)->nullable();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
 
