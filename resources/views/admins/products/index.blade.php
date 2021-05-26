@@ -82,7 +82,7 @@
                                         <div class="modal-body"><span style="color: red"> Are you sure?</span> Can not restore data after deleting!</div>
                                         <div class="modal-footer">
                                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                            <a class="btn btn-danger" href="{{ route('admin.category.destroy',$product->id) }}">Delete</a>
+                                            <a class="btn btn-danger" href="{{ route('admin.product.delete',$product->id) }}">Delete</a>
                                         </div>
                                     </div>
                                 </div>

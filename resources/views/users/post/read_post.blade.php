@@ -42,8 +42,33 @@
                                 </a>
                                 <p class="date">{{ $post->created_at }} </p>
                                 <ul>
-                                    <div class="hero__btn" data-animation="fadeInLeft" data-delay=".4s" data-duration="100ms" style="animation-delay: 0.4s;">
-                                        <p>{!! $post->description !!}</p>
+                                    <div class="col-12">
+                                        <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Thông tin</a>
+                                            </li>
+                                            @if (isset($post->video))
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Video</a>
+                                                </li>
+                                            @endif
+                                        </ul>
+                                        <div class="tab-content ml-1" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-12">
+                                                        <p>{!! $post->description !!}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @if (isset($post->video))
+                                            <div class="tab-pane fade text-center" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
+                                                <video width="720" height="480" controls>
+                                                    <source src="{{ asset('videos/front_videos/post/'.$post->video) }}" type="video/mp4">
+                                                </video>
+                                            </div>
+                                            @endif
+                                        </div>
                                     </div>
                                 </ul>
                             </div>
@@ -57,6 +82,11 @@
                     <aside class="single_sidebar_widget post_category_widget">
                         <h4 class="widget_title">Danh mục</h4>
                         <ul class="list cat-list">
+                            <li>
+                                <a href="{{ route('user.post','news') }}" class="d-flex">
+                                    <p>News</p>
+                                </a>
+                            </li>
                             <li>
                                 <a href="{{ route('user.post','uses') }}" class="d-flex">
                                     <p>Công dụng</p>
