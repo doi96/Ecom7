@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Post;
 use Illuminate\Support\Facades\Session;
 use Mail;
 
@@ -12,7 +13,13 @@ class ContactController extends Controller
     public function contact()
     {
         $getCategories = Category::where('status',1)->with('products')->get();
-        return view('users.contact.contact')->with(compact('getCategories'));
+
+        $meta_title = 'GCAPVN | Liên hệ | CÔNG TY TNHH GCAPVN';
+        $getAbout = Post::where('type','about')->where('status',1)->orderByDesc('created_at','desc')->first();
+        $meta_description = $getAbout->description;
+        $meta_keywords = 'GCAPVN, RONG NHO VN, RONG NHO KHANH HOA, RONG NHO TUOI, RONG NHO KHO, RONG NHO BOT, RONG NHO DONG GOI, CONTACT, LIEN HE';
+
+        return view('users.contact.contact')->with(compact('getCategories','meta_title','meta_description','meta_keywords'));
     }
 
     public function contactPost(Request $request)
