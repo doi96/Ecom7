@@ -1,32 +1,30 @@
 <div class="shop-method-area">
-            <div class="container">
-                <div class="method-wrapper">
-                    <div class="row d-flex justify-content-between">
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-method mb-40">
-                                <i class="ti-package"></i>
-                                <h6>Free Shipping Method</h6>
-                                <p>aorem ixpsacdolor sit ameasecur adipisicing elitsf edasd.</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-method mb-40">
-                                <i class="ti-unlock"></i>
-                                <h6>Secure Payment System</h6>
-                                <p>aorem ixpsacdolor sit ameasecur adipisicing elitsf edasd.</p>
-                            </div>
-                        </div> 
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="single-method mb-40">
-                                <i class="ti-reload"></i>
-                                <h6>Secure Payment System</h6>
-                                <p>aorem ixpsacdolor sit ameasecur adipisicing elitsf edasd.</p>
-                            </div>
-                        </div>
+    <div class="container">
+        <div class="method-wrapper">
+            <div class="row d-flex justify-content-between">
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single-method mb-40 text-center">
+                        <i class="ti-crown"></i>
+                        <h6>Chất lượng hàng đầu</h6>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single-method mb-40 text-center">
+                        <i class="ti-wallet"></i>
+                        <h6>Giá cả cạnh tranh</h6>
+                    </div>
+                </div> 
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single-method mb-40 text-center">
+                        <i class="ti-world"></i>
+                        <h6>Phân phối rộng rãi</h6>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
 <footer>
         <!-- Footer Start-->
         <div class="footer-area footer-padding">
@@ -41,8 +39,8 @@
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
-                                        <p>Asorem ipsum adipolor sdit amet, consectetur adipisicing elitcf sed do eiusmod tem.</p>
-                                </div>
+                                        <p>Sứ mệnh của chúng tôi là mang tới những sản phẩm tốt nhất tới khách hàng với giá trị tuyệt vời nhất! </p><hr> <p><span style="color: #45812b"> CHẤT LƯỢNG THẬT - GIÁ TRỊ THẬT</span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -52,10 +50,10 @@
                             <div class="footer-tittle">
                                 <h4>Truy cập nhanh</h4>
                                 <ul>
-                                    <li><a href="{{ route('user.about') }}">About</a></li>
+                                    <li><a href="{{ route('user.about') }}">Giới thiệu</a></li>
                                     <li><a href="#"> Offers & Discounts</a></li>
                                     <li><a href="#"> Get Coupon</a></li>
-                                    <li><a href="{{ route('user.contact') }}">  Contact Us</a></li>
+                                    <li><a href="{{ route('user.contact') }}">  Liên hệ</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -63,12 +61,10 @@
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
-                                <h4>Sản phẩm mới</h4>
+                                <h4>Phân phối sản phẩm</h4>
                                 <ul>
-                                    <li><a href="#">Woman Cloth</a></li>
-                                    <li><a href="#">Fashion Accessories</a></li>
-                                    <li><a href="#"> Man Accessories</a></li>
-                                    <li><a href="#"> Rubber made Toys</a></li>
+                                    <li><a href="{{ route('user.distribution') }}">Chính sách phân phối</a></li>
+                                    <li><a href="{{ route('user.distributor') }}">Danh sách nhà phân phối</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -76,7 +72,7 @@
                     <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
-                                <h4>Hỗ trợ</h4>
+                                <h4>Hỗ trợ khách hàng</h4>
                                 <ul>
                                     <li><a href="#">Frequently Asked Questions</a></li>
                                     <li><a href="#">Terms & Conditions</a></li>
