@@ -32,7 +32,7 @@
                                 <label style="font-weight:bold;">Description</label>
                             </div>
                             <div class="col-md-8 col-6">
-                                {{ $product->description }}
+                                {!! $product->description !!}
                             </div>
                         </div>
                         <hr />

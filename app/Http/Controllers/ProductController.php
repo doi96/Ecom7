@@ -6,6 +6,7 @@ use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use phpDocumentor\Reflection\Types\Null_;
 use Intervention\Image\Facades\Image;
@@ -31,7 +32,6 @@ class ProductController extends Controller
             'description' => 'required',
             'category_id' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'price' => 'required',
             'video' => 'mimes:mpeg,ogg,mp4,webm,3gp,mov,flv,avi,wmv,ts',
         ]);
 
@@ -92,7 +92,6 @@ class ProductController extends Controller
             'description' => 'required',
             'category_id' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'price' => 'required',
             'video' => 'mimes:mpeg,ogg,mp4,webm,3gp,mov,flv,avi,wmv,ts',
         ]);
 
@@ -102,16 +101,25 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->extension();  
             $image_tmp = $request->file('image');
-
+            
             //move image to folder
             $large_image_path = 'images/front_images/product/large/'.$imageName;
             $medium_image_path = 'images/front_images/product/medium/'.$imageName;
             $small_image_path = 'images/front_images/product/small/'.$imageName;
+
+            //remove old file
+            $oldImage = Product::where('id',$id)->select('image')->first();
+            if (file_exists($large_image_path.$oldImage->image)) {
+            unlink($large_image_path.$oldImage->image);
+            }
+
             // Resize Image code
             Image::make($image_tmp)->save($large_image_path);
             Image::make($image_tmp)->resize(720,720)->save($medium_image_path);
             Image::make($image_tmp)->resize(360,360)->save($small_image_path);
             // Store image name in products table
+
+            
         }else {
             $image = Product::where('id',$id)->select('image')->first();
             $imageName = $image->image;
@@ -133,8 +141,42 @@ class ProductController extends Controller
         
         Session::flash('success_message','Product has been updated successfully!');
         return redirect()->route('admin.product');
+    }
 
+    public function deleteProduct($id)
+    {
+        //move image to folder
+        $large_image_path = 'images/front_images/product/large/';
+        $medium_image_path = 'images/front_images/product/medium/';
+        $small_image_path = 'images/front_images/product/small/';
 
+        $product = Product::where('id',$id)->first();
+        // Deleted Larger Image if not exits in Folder
+        if (file_exists($large_image_path.$product->image)) {
+            unlink($large_image_path.$product->image);
+        }
+        // Deleted Medium Image if not exits in Folder
+        if (file_exists($medium_image_path.$product->image)) {
+            unlink($medium_image_path.$product->image);
+        }
+        // Deleted Small Image if not exits in Folder
+        if (file_exists($small_image_path.$product->image)) {
+            unlink($small_image_path.$product->image);
+        }
+
+        if($product->video!=NULL){
+            if (file_exists('videos/front_videos/products/'.$product->video)) {
+                unlink('videos/front_videos/products/'.$product->video);
+            }
+        }
+
+        //delete slide about product
+        $slide = DB::table('slides')->where('type','product')->where('link',$id)->delete();
+        $product = Product::where('id',$id)->delete();
+
+        Session::flash('success_message','Product has been deleted successfully!');
+
+        return back();
     }
 
 }
