@@ -96,7 +96,7 @@
                                                     <option value="south" @if($distribution->area=='south') selected @endif>South</option>
                                                     <option value="north" @if($distribution->area=='north') selected @endif>North</option>
                                                     <option value="middle" @if($distribution->area=='middle') selected @endif>Middle</option>
-                                                    <option value="orther" @if($distribution->area=='orther') selected @endif>Orther</option>
+                                                    <option value="orther" @if($distribution->area=='orther') selected @endif>Other</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">

@@ -35,7 +35,7 @@
                             <option value="news">News</option>
                             <option value="tutorial">Tutoial</option>
                             <option value="uses">Uses</option>
-                            <option value="orther">Orther</option>
+                            <option value="orther">Other</option>
                         </select>
                     </div>
                     <div class="form-group">
