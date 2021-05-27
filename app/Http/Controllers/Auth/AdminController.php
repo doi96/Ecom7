@@ -109,24 +109,49 @@ class AdminController extends Controller
         return view('admins.slides.create_slide');
     }
 
-    public function getTypeSlide(Request $request){
- 
-        $data = $request->all();
-        if ($data['type_slide']=='uses') {
+    public function getTypeSlide($style){
+
+        // $data = $request->all();
+        // if ($data['type_slide']=='uses') {
+        //         $post = Post::where(function($query) {
+        //         $query->where('type','uses');
+        //         })->where('status',1)->orderByDesc('created_at','desc')->get();
+        // }elseif ($data['type_slide']=='tutorial') {
+        //     $post = Post::where(function($query) {
+        //         $query->where('type','tutorial');
+        //         })->where('status',1)->orderByDesc('created_at','desc')->get();
+        // }elseif ($data['type_slide']=='orther') {
+        //     $post = Post::where(function($query) {
+        //         $query->where('type','orther');
+        //         })->where('status',1)->orderByDesc('created_at','desc')->get();
+        // }elseif ($data['type_slide']=='product') {
+        //     $post = Product::where('status',1)->orderByDesc('created_at','desc')->get();
+        // }elseif ($data['type_slide']=='news') {
+        //     $post = Post::where(function($query) {
+        //         $query->where('type','news');
+        //         })->where('status',1)->orderByDesc('created_at','desc')->get();
+        // }else {
+        //     $post = NULL;
+        // }
+
+        // $post = json_decode(json_encode($post),true);
+        // return response()->json($post);
+
+        if ($style=='uses') {
                 $post = Post::where(function($query) {
                 $query->where('type','uses');
                 })->where('status',1)->orderByDesc('created_at','desc')->get();
-        }elseif ($data['type_slide']=='tutorial') {
+        }elseif ($style=='tutorial') {
             $post = Post::where(function($query) {
                 $query->where('type','tutorial');
                 })->where('status',1)->orderByDesc('created_at','desc')->get();
-        }elseif ($data['type_slide']=='orther') {
+        }elseif ($style=='orther') {
             $post = Post::where(function($query) {
                 $query->where('type','orther');
                 })->where('status',1)->orderByDesc('created_at','desc')->get();
-        }elseif ($data['type_slide']=='product') {
+        }elseif ($style=='product') {
             $post = Product::where('status',1)->orderByDesc('created_at','desc')->get();
-        }elseif ($data['type_slide']=='news') {
+        }elseif ($style=='news') {
             $post = Post::where(function($query) {
                 $query->where('type','news');
                 })->where('status',1)->orderByDesc('created_at','desc')->get();

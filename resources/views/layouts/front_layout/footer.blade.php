@@ -98,6 +98,8 @@
                                 <a href="https://www.facebook.com/Gcapvn/"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fab fa-amazon"></i></a>
                                 <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://shopee.vn/gcapvn"><img src="{{ asset('shopee-bw.png') }}" style="width: 15px; margin-bottom: 3px; margin-left: 5px"></a>
+                                <a href="https://shopee.vn/gcapvn"><img src="{{ asset('shopee-bw.png') }}" style="width: 15px; margin-bottom: 3px; margin-left: 5px"></a>
                             </div>
                         </div>
                     </div>

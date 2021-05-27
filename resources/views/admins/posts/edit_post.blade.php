@@ -32,7 +32,7 @@
                         <select class="form-control" id="type_post" name="type_post" >
                         <option value="0"> -- Select type -- </option>
                             <option value="about" @if($post->type == 'about') selected @endif >About</option>
-                            <option value="orther" @if($post->type == 'orther') selected @endif>Orther</option>
+                            <option value="orther" @if($post->type == 'orther') selected @endif>Other</option>
                             <option value="news" @if($post->type == 'news') selected @endif>News</option>
                             <option value="tutorial" @if($post->type == 'tutorial') selected @endif>Tutoial</option>
                             <option value="uses" @if($post->type == 'uses') selected @endif>Uses</option>

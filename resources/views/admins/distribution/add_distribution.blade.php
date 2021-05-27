@@ -34,7 +34,7 @@
                         <option value="south">South</option>
                         <option value="north">North</option>
                         <option value="middle">Middle</option>
-                        <option value="orther">Orther</option>
+                        <option value="orther">Other</option>
                         </select>
                     </div>
                     <div class="form-group">

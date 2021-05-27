@@ -78,7 +78,7 @@ Route::prefix('admin')->group(function() {
         Route::post('admin-slider-store','Auth\AdminController@storeSlider')->name('admin.slider.store');
         Route::post('admin-slider-edit/{id}','Auth\AdminController@editSlider')->name('admin.slider.edit');
         Route::get('admin-slider-delete/{id}','Auth\AdminController@deleteSlider')->name('admin.slider.delete');
-        Route::post('admin-slider-getType/','Auth\AdminController@getTypeSlide')->name('admin.slider.getType');
+        Route::GET('admin-slider-getType/{style}','Auth\AdminController@getTypeSlide')->name('admin.slider.getType');
 
         //Product route
         Route::get('admin-product','ProductController@index')->name('admin.product');

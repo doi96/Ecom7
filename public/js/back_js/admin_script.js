@@ -3,8 +3,8 @@ $(document).ready(function () {
 	$('#type_slide').change(function(){
         var type_slide = $(this).val();
 		$.ajax({
-			type: 'POST',
-            url: '/admin/admin-slider-getType/',
+			type: 'GET',
+            url: '/admin/admin-slider-getType/'+type_slide,
             data: { type_slide: type_slide },
             success: function(results) {
                 console.log(results);
