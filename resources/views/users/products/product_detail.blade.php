@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>Thông tin sản phẩm</h2>
+                                <h2>{{__('label.productdetail')}}</h2>
                             </div>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                         <div class="col-12">
                             <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Thông tin</a>
+                                    <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">{{__('label.infor')}}</a>
                                 </li>
                                 @if (isset($product->video))
                                     <li class="nav-item">

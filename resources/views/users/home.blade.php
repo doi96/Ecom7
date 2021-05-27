@@ -61,9 +61,9 @@
                                                 <!-- Hero-btn -->
                                                 <div class="hero__btn" data-animation="fadeInLeft" data-delay=".4s" data-duration="100ms">
                                                     @if ($slide->type=='uses'||$slide->type=='orther'||$slide->type=='tutorial'||$slide->type=='news')
-                                                        <a href="{{ route('user.post.read',[$slide->type,$slide->link]) }}" class="btn hero-btn">Xem ngay</a>
+                                                        <a href="{{ route('user.post.read',[$slide->type,$slide->link]) }}" class="btn hero-btn">{{__('label.readnow')}}</a>
                                                     @elseif ($slide->type=='product')
-                                                        <a href="{{ route('user.product.detail',$slide->link) }}" class="btn hero-btn">Xem ngay</a>
+                                                        <a href="{{ route('user.product.detail',$slide->link) }}" class="btn hero-btn">{{__('label.readnow')}}</a>
                                                     @else
                                                     
                                                     @endif
@@ -90,7 +90,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="section-tittle mb-70">
-                            <h2>Sản phẩm mới</h2>
+                            <h2>{{__('label.newproduct')}}</h2>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="product-caption">
                                         <h3><a href="{{ route('user.product.detail',$getNewProduct->id) }}">{{ $getNewProduct->name }}</a></h3>
-                                        <span>Liên hệ để biết giá</span>
+                                        <span>{{__('label.contactprice')}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -153,8 +153,8 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8 col-md-10">
                         <div class="section-tittle mb-70 text-center">
-                            <h2>Sản phẩm nổi bật</h2>
-                            <p>Những sản phẩm nổi bật của công ty. Vui lòng nhấp vào sản phẩm để biết thêm thông tin chi tiết của từng loại sản phẩm!</p>
+                            <h2>{{__('label.featureproduct')}}</h2>
+                            <p>{{__('label.sloganfeatureproduct')}}</p>
                         </div>
                     </div>
                 </div>
@@ -165,7 +165,7 @@
                                 <div class="popular-img">
                                     <img src="{{ asset('images/front_images/product/small/'.$getFeatureProduct->image) }}" alt="">
                                     <div class="img-cap">
-                                        <a href="{{ route('user.product.detail',$getFeatureProduct->id) }}"><span>Xem chi tiết</span></a>
+                                        <a href="{{ route('user.product.detail',$getFeatureProduct->id) }}"><span>{{__('label.viewdetail')}}</span></a>
                                     </div>
                                     <div class="favorit-items">
                                         <a href="{{ route('user.product.detail',$getFeatureProduct->id) }}"><span class="flaticon-heart"></span></a>
@@ -173,7 +173,7 @@
                                 </div>
                                 <div class="popular-caption">
                                     <h3><a href="{{ route('user.product.detail',$getFeatureProduct->id) }}">{{ $getFeatureProduct->name }}</a></h3>
-                                    <span>Liên hệ để biết giá</span>
+                                    <span>{{__('label.contactprice')}}</span>
                                 </div>
                             </div>
                         </div>
@@ -182,7 +182,7 @@
                 <!-- Button -->
                 <div class="row justify-content-center">
                     <div class="room-btn pt-70">
-                        <a href="{{ route('product.all') }}" class="btn view-btn1">Tất cả sản phẩm</a>
+                        <a href="{{ route('product.all') }}" class="btn view-btn1">{{__('label.allproduct')}}</a>
                     </div>
                 </div>
             </div>
@@ -201,7 +201,7 @@
                 <!-- Arrow -->
                 <div class="thumb-content-box">
                     <div class="thumb-content">
-                        <h3>Giới thiệu</h3>
+                        <h3>{{__('label.introduce')}}</h3>
                         <a href="#"> <i class="flaticon-arrow"></i></a>
                     </div>
                 </div>
@@ -216,9 +216,9 @@
                         <div class="row align-items-center justify-content-between padding-130">
                             <div class="col-lg-5 col-md-6">
                                 <div class="watch-details mb-40">
-                                    <h2>Bài viết mới</h2>
+                                    <h2>{{__('label.newpost')}}</h2>
                                     <p>{{ $item->title}}</p>
-                                    <a href="{{ route('user.post.read',[$item->type,$item->id]) }}" class="btn">Xem ngay</a>
+                                    <a href="{{ route('user.post.read',[$item->type,$item->id]) }}" class="btn">{{__('label.readnow')}}</a>
                                 </div>
                             </div>
                             @if(isset($item->image))
@@ -244,9 +244,9 @@
                             @endif
                             <div class="col-lg-5 col-md-6">
                                 <div class="watch-details mb-40">
-                                    <h2>Tin tức mới</h2>
+                                    <h2>{{__('label.hotnews')}}</h2>
                                     <p>{{ $item->title}}</p>
-                                    <a href="{{ route('user.post.read',[$item->type,$item->id]) }}" class="btn">Xem ngay</a>
+                                    <a href="{{ route('user.post.read',[$item->type,$item->id]) }}" class="btn">{{__('label.readnow')}}</a>
                                 </div>
                             </div>
                         </div>

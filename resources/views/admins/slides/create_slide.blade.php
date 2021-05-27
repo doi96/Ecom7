@@ -42,7 +42,7 @@
                         <label for="type_slide">Type slide</label>
                         <select class="form-control" id="type_slide" name="type_slide" >
                             <option > -- Select type -- </option>
-                            <option value="orther">Post Orther</option>
+                            <option value="orther">Post Other</option>
                             <option value="tutorial">Post Tutorial</option>
                             <option value="uses">Post Uses</option>
                             <option value="news">Post News</option>

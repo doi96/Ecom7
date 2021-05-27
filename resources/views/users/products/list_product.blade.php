@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>Danh sách sản phẩm</h2>
+                                <h2>{{__('label.listproduct')}}</h2>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                                             <div class="popular-img">
                                                 <img src="{{ asset('images/front_images/product/small/'.$item->image) }}" alt="">
                                                 <div class="img-cap">
-                                                    <a href="{{ route('user.product.detail',$item->id) }}"><span>Xem chi tiết</span></a>
+                                                    <a href="{{ route('user.product.detail',$item->id) }}"><span>{{__('label.viewdetail')}}</span></a>
                                                 </div>
                                                 <div class="favorit-items">
                                                     <span class="flaticon-heart"></span>
@@ -58,7 +58,7 @@
                                             </div>
                                             <div class="popular-caption">
                                                 <h3><a href="{{ route('user.product.detail',$item->id) }}">{{ $item->name }}</a></h3>
-                                                <span>Liên hệ để biết giá</span>
+                                                <span>{{__('label.contactprice')}}</span>
                                             </div>
                                         </div>
                                     </div>

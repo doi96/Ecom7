@@ -8,7 +8,7 @@
                 <div class="col-xl-12">
                     <div class="hero-cap text-center">
                         <h2>
-                            Chính sách phân phối
+                            {{__('label.distributionPolicy')}}
                         </h2>
                     </div>
                 </div>
@@ -84,12 +84,12 @@
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
                     <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Danh mục</h4>
+                        <h4 class="widget_title">{{__('label.category')}}</h4>
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <a class="nav-link active" id="v-pills-north-tab" data-toggle="pill" href="#v-pills-north" role="tab" aria-controls="v-pills-north" aria-selected="true">Thông tin đặt hàng - làm nhà phân phối</a>
-                                <a class="nav-link" id="v-pills-middle-tab" data-toggle="pill" href="#v-pills-middle" role="tab" aria-controls="v-pills-middle" aria-selected="false">Vận chuyển giao hàng</a>
-                                <a class="nav-link" id="v-pills-south-tab" data-toggle="pill" href="#v-pills-south" role="tab" aria-controls="v-pills-south" aria-selected="false">Cam kết chất lượng</a>
-                                <a class="nav-link" id="v-pills-orther-tab" data-toggle="pill" href="#v-pills-orther" role="tab" aria-controls="v-pills-orther" aria-selected="false">Chính sách đổi trả</a>
+                                <a class="nav-link active" id="v-pills-north-tab" data-toggle="pill" href="#v-pills-north" role="tab" aria-controls="v-pills-north" aria-selected="true">{{__('label.orderinfor')}}</a>
+                                <a class="nav-link" id="v-pills-middle-tab" data-toggle="pill" href="#v-pills-middle" role="tab" aria-controls="v-pills-middle" aria-selected="false">{{__('label.shippandder')}}</a>
+                                <a class="nav-link" id="v-pills-south-tab" data-toggle="pill" href="#v-pills-south" role="tab" aria-controls="v-pills-south" aria-selected="false">{{__('label.commitmentquanlity')}}</a>
+                                <a class="nav-link" id="v-pills-orther-tab" data-toggle="pill" href="#v-pills-orther" role="tab" aria-controls="v-pills-orther" aria-selected="false">{{__('label.returnpolicy')}}</a>
                             </div>
                     </aside>
                 </div>

@@ -7,6 +7,7 @@ use App\Post;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -44,5 +45,20 @@ class HomeController extends Controller
         $meta_keywords = 'GCAPVN, RONG NHO VN, RONG NHO KHANH HOA, RONG NHO TUOI, RONG NHO KHO, RONG NHO BOT, RONG NHO DONG GOI';
 
         return view('users.home')->with(compact('getCategories','slides','getNewProducts','getFeatureProducts','getPost','getNews','meta_title','meta_description','meta_keywords'));
+    }
+
+    public function changeLanguage(Request $request)
+    {
+        $lang = $request->language;
+        $language = config('app.locale');
+        if ($lang == 'en') {
+            $language = 'en';
+        }
+        if ($lang == 'vi') {
+            $language = 'vi';
+        }
+        Session::put('language', $language);
+
+        return redirect()->back();
     }
 }

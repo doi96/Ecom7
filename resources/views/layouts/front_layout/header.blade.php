@@ -12,33 +12,40 @@
                         <div class="main-menu d-none d-lg-block">
                             <nav>                                                
                                 <ul id="navigation">  
-                                    <li><a href="{{ route('user.home') }}">Trang chủ</a></li>
-                                    <li><a href="#">Về GCAPVN</a>
+                                    <li><a href="{{ route('user.home') }}">{{ __('label.home')}}</a></li>
+                                    <li><a href="#">{{ __('label.aboutGCAPVN') }}</a>
                                         <ul class="submenu">
-                                            <li><a href="{{ route('user.about') }}">Giới thiệu</a></li>
-                                            <li><a href="{{ route('user.distribution') }}">Chính sách phân phối</a></li>
-                                            <li><a href="{{ route('user.distributor') }}">Danh sách nhà phân phối</a></li>
+                                            <li><a href="{{ route('user.about') }}">{{ __('label.about') }}</a></li>
+                                            <li><a href="{{ route('user.distribution') }}">{{ __('label.distributionPolicy') }}</a></li>
+                                            <li><a href="{{ route('user.distributor') }}">{{ __('label.DistributorList') }}</a></li>
                                         </ul>
                                     </li>
-                                    <li class="hot"><a href="{{ route('product.all') }}">Sản phẩm</a>
+                                    <li class="hot"><a href="{{ route('product.all') }}">{{ __('label.product')}}</a>
                                         <ul class="submenu">
                                             @foreach ($getCategories as $getCategory)
                                                 <li><a href="{{ route('product.category',$getCategory->id) }}"> {{ $getCategory->name }}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li><a href="{{ route('user.post','news') }}">News</a></li>
-                                    <li><a href="#">Bài viết</a>
+                                    <li><a href="{{ route('user.post','news') }}">{{ __('label.news') }}</a></li>
+                                    <li><a href="#">{{__('label.post')}}</a>
                                         <ul class="submenu">
-                                            <li><a href="{{ route('user.post','uses') }}">Công dụng</a></li>
-                                            <li><a href="{{ route('user.post','tutorial') }}">Chế biến & bảo quản</a></li>
-                                            <li><a href="{{ route('user.post','orther') }}"">Khác</a></li>
+                                            <li><a href="{{ route('user.post','uses') }}">{{ __('label.uses')}}</a></li>
+                                            <li><a href="{{ route('user.post','tutorial') }}">{{__('label.processingandpreserving')}}</a></li>
+                                            <li><a href="{{ route('user.post','orther') }}"">{{__('label.orther')}}</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="{{ route('user.contact') }}">Liên hệ</a></li>
+                                    <li><a href="{{ route('user.contact') }}">{{__('label.contact')}}</a></li>
+                                    <li><a href="#">{{__('label.language')}}</a>
+                                        <ul class="submenu">
+                                            <li><a href="{!! route('change-language', ['en']) !!}">English</a></li>
+                                            <li><a href="{!! route('change-language', ['vi']) !!}">Tiếng Việt</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
+                        
                         <!-- Header Right -->
                         <div class="header-right">
                             <ul>
@@ -49,6 +56,7 @@
                                 </li>
                             </ul>
                         </div>
+                        
                     </div>
                     <!-- Mobile Menu -->
                     <div class="col-12">
