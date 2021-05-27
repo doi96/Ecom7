@@ -60,7 +60,7 @@
                                                 <p data-animation="fadeInLeft" data-delay=".4s" data-duration="100ms">{{ $slide->description }}</p>
                                                 <!-- Hero-btn -->
                                                 <div class="hero__btn" data-animation="fadeInLeft" data-delay=".4s" data-duration="100ms">
-                                                    @if ($slide->type=='uses'||$slide->type=='orther'||$slide->type=='tutorla'||$slide->type=='news')
+                                                    @if ($slide->type=='uses'||$slide->type=='orther'||$slide->type=='tutorial'||$slide->type=='news')
                                                         <a href="{{ route('user.post.read',[$slide->type,$slide->link]) }}" class="btn hero-btn">Xem ngay</a>
                                                     @elseif ($slide->type=='product')
                                                         <a href="{{ route('user.product.detail',$slide->link) }}" class="btn hero-btn">Xem ngay</a>
