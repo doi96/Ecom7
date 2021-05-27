@@ -8,7 +8,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            Add Slide
+            Edit Slide
         </div>
 
         @if (count($errors) > 0)
@@ -24,15 +24,15 @@
 
         <div class="card-body">
             <div class="table-responsive">
-                <form action="{{ route('admin.slider.store') }}" method="POST" enctype="multipart/form-data">@csrf
+                <form action="{{ route('admin.slider.update',$slides->id) }}" method="POST" enctype="multipart/form-data">@csrf
                     <div class="form-group">
                         <label for="category_name">Tilte</label>
-                        <input name="title" type="text" class="form-control" id="title">
+                        <input name="title" type="text" class="form-control" id="title" value="{{ $slides->title }}">
                     </div>
                     
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea name="description" class="form-control" id="description" rows="3"></textarea>
+                        <textarea name="description" class="form-control" id="description" rows="3">{{ $slides->description }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="description">Image</label>
@@ -56,13 +56,13 @@
                     </div>
 
                     <div class="form-check">
-                        <input name="status" class="form-check-input" type="checkbox" value="1" id="defaultCheck1">
+                        <input name="status" class="form-check-input" type="checkbox" value="1" id="defaultCheck1" @if($slides->status==1) checked @endif >
                         <label class="form-check-label" for="defaultCheck1">
                             Activate
                         </label>
                     </div>
                     <hr>
-                    <button type="submit" class="btn btn-primary">Add Slide</button>
+                    <button type="submit" class="btn btn-primary">Update Slide</button>
                 </form>
             </div>
         </div>

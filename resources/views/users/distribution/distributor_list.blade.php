@@ -8,7 +8,7 @@
                 <div class="col-xl-12">
                     <div class="hero-cap text-center">
                         <h2>
-                            Nhà phân phối
+                            {{__('label.DistributorList')}}
                         </h2>
                     </div>
                 </div>
@@ -30,8 +30,8 @@
                                         <a class="d-inline-block" href="#">
                                             <h2>{{$i}}. {{ $item->name }}</h2>
                                         </a>
-                                        <h3 class="date">Địa chỉ:  <span style="color: green">{{ $item->address }} </span></h3>
-                                        <h5 class="date">Số điện thoại: <span style="color: green">{{ $item->phone }}</span> </h5>
+                                        <h3 class="date">{{__('label.address')}}:  <span style="color: green">{{ $item->address }} </span></h3>
+                                        <h5 class="date">{{__('label.phone')}}: <span style="color: green">{{ $item->phone }}</span> </h5>
                                         <ul>
                                             <h5 class="date">Website: <span style="color: green">{{ $item->website }} </span></h5>
                                         </ul>
@@ -48,8 +48,8 @@
                                         <a class="d-inline-block" href="#">
                                             <h2>{{$i}}. {{ $item->name }}</h2>
                                         </a>
-                                        <h3 class="date">Địa chỉ:  <span style="color: green">{{ $item->address }} </span></h3>
-                                        <h5 class="date">Số điện thoại: <span style="color: green">{{ $item->phone }}</span> </h5>
+                                        <h3 class="date">{{__('label.address')}}:  <span style="color: green">{{ $item->address }} </span></h3>
+                                        <h5 class="date">{{__('label.phone')}}: <span style="color: green">{{ $item->phone }}</span> </h5>
                                         <ul>
                                             <h5 class="date">Website: <span style="color: green">{{ $item->website }} </span></h5>
                                         </ul>
@@ -66,8 +66,8 @@
                                         <a class="d-inline-block" href="#">
                                             <h2>{{$i}}. {{ $item->name }}</h2>
                                         </a>
-                                        <h3 class="date">Địa chỉ:  <span style="color: green">{{ $item->address }} </span></h3>
-                                        <h5 class="date">Số điện thoại: <span style="color: green">{{ $item->phone }}</span> </h5>
+                                        <h3 class="date">{{__('label.address')}}:  <span style="color: green">{{ $item->address }} </span></h3>
+                                        <h5 class="date">{{__('label.phone')}}: <span style="color: green">{{ $item->phone }}</span> </h5>
                                         <ul>
                                             <h5 class="date">Website: <span style="color: green">{{ $item->website }} </span></h5>
                                         </ul>
@@ -84,8 +84,8 @@
                                         <a class="d-inline-block" href="#">
                                             <h2>{{$i}}. {{ $item->name }}</h2>
                                         </a>
-                                        <h3 class="date">Địa chỉ:  <span style="color: green">{{ $item->address }} </span></h3>
-                                        <h5 class="date">Số điện thoại: <span style="color: green">{{ $item->phone }}</span> </h5>
+                                        <h3 class="date">{{__('label.address')}}:  <span style="color: green">{{ $item->address }} </span></h3>
+                                        <h5 class="date">{{__('label.phone')}}: <span style="color: green">{{ $item->phone }}</span> </h5>
                                         <ul>
                                             <h5 class="date">Website: <span style="color: green">{{ $item->website }} </span></h5>
                                         </ul>
@@ -101,12 +101,12 @@
                 <div class="blog_right_sidebar">
                     @include('layouts.front_layout.search_distributor')
                     <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Danh mục</h4>
+                        <h4 class="widget_title">{{__('label.category')}}</h4>
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <a class="nav-link active" id="v-pills-north-tab" data-toggle="pill" href="#v-pills-north" role="tab" aria-controls="v-pills-north" aria-selected="true">Miền Bắc</a>
-                                <a class="nav-link" id="v-pills-middle-tab" data-toggle="pill" href="#v-pills-middle" role="tab" aria-controls="v-pills-middle" aria-selected="false">Miền Trung</a>
-                                <a class="nav-link" id="v-pills-south-tab" data-toggle="pill" href="#v-pills-south" role="tab" aria-controls="v-pills-south" aria-selected="false">Miền Nam</a>
-                                <a class="nav-link" id="v-pills-orther-tab" data-toggle="pill" href="#v-pills-orther" role="tab" aria-controls="v-pills-orther" aria-selected="false">Khu vực khác</a>
+                                <a class="nav-link active" id="v-pills-north-tab" data-toggle="pill" href="#v-pills-north" role="tab" aria-controls="v-pills-north" aria-selected="true">{{__('label.north')}}</a>
+                                <a class="nav-link" id="v-pills-middle-tab" data-toggle="pill" href="#v-pills-middle" role="tab" aria-controls="v-pills-middle" aria-selected="false">{{__('label.middle')}}</a>
+                                <a class="nav-link" id="v-pills-south-tab" data-toggle="pill" href="#v-pills-south" role="tab" aria-controls="v-pills-south" aria-selected="false">{{__('label.south')}}</a>
+                                <a class="nav-link" id="v-pills-orther-tab" data-toggle="pill" href="#v-pills-orther" role="tab" aria-controls="v-pills-orther" aria-selected="false">{{__('label.otherarea')}}</a>
                             </div>
                     </aside>
                 </div>

@@ -8,7 +8,7 @@
                 <div class="col-xl-12">
                     <div class="hero-cap text-center">
                         <h2>
-                            Truy xuất nguồn gốc
+                            {{__('label.tracea')}}
                         </h2>
                     </div>
                 </div>

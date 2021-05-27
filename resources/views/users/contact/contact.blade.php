@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>Liên hệ</h2>
+                                <h2>{{__('label.contact')}}</h2>
                             </div>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="contact-title">Gửi thư cho chúng tôi</h2>
+                        <h2 class="contact-title">{{__('label.sendmailus')}}</h2>
                     </div>
                     @if (count($errors) > 0)
                         <div class="alert alert-danger">
@@ -52,27 +52,27 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea class="form-control w-100" name="content" id="content" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Nhập nội dung mail"></textarea>
+                                        <textarea class="form-control w-100" name="content" id="content" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{__('label.entermessage')}}'" placeholder="{{__('label.entermessage')}}"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Nhập họ tên">
+                                        <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{__('label.entername')}}'" placeholder="{{__('label.entername')}}">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input class="form-control" name="phone" id="phone" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Số điện thoại liên lạc">
+                                        <input class="form-control" name="phone" id="phone" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = '{{__('label.phonenumber')}}'" placeholder="{{__('label.phonenumber')}}">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group mt-3">
-                                <button type="submit" class="button btn-success">Gửi</button>
+                                <button type="submit" class="button btn-success">{{__('label.send')}}</button>
                             </div>
                         </form>
                     </div>
@@ -80,22 +80,22 @@
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="ti-home"></i></span>
                             <div class="media-body">
-                                <h3>CÔNG TY TNHH GCAP VN.</h3>
-                                <p>Địa chỉ: Thôn Cát Lợi, Xã Vĩnh Lương, Thành Phố Nha Trang, Tỉnh Khánh Hòa, Việt Nam</p>
+                                <h3>{{__('label.gcapvn')}}</h3>
+                                <p>{{__('label.address')}}: {{__('label.local')}}</p>
                             </div>
                         </div>
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="ti-tablet"></i></span>
                             <div class="media-body">
                                 <h3>+0905590098</h3>
-                                <p>Liên lạc trong giờ hành chính!</p>
+                                <p>{{__('label.rulecontact')}}</p>
                             </div>
                         </div>
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="ti-email"></i></span>
                             <div class="media-body">
                                 <h3>gcapvn79@gmail.com</h3>
-                                <p>Gửi thư cho chúng tôi bất cứ khi nào!</p>
+                                <p>{{__('label.sendmail')}}</p>
                             </div>
                         </div>
                     </div>

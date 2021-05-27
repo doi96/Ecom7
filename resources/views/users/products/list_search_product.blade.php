@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>Kết quả tìm kiếm</h2>
+                                <h2>{{__('label.searchresult'))}}</h2>
                             </div>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                         <!--Nav Button  -->
                         <nav>                                                      
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <button class="btn btn-success">Tìm thấy {{count($products)}} sản phẩm</button> 
+                                <button class="btn btn-success">{{__('label.find')}} {{count($products)}} {{__('label.product')}}</button> 
                             </div>
                         </nav>
                         <!--End Nav Button  -->
@@ -45,7 +45,7 @@
                                         <div class="popular-img">
                                             <img src="{{ asset('images/front_images/product/small/'.$item->image) }}" alt="">
                                             <div class="img-cap">
-                                                <span>Xem chi tiết</span>
+                                                <span>{{__('label.viewdetail')}}</span>
                                             </div>
                                             <div class="favorit-items">
                                                 <span class="flaticon-heart"></span>
@@ -53,7 +53,7 @@
                                         </div>
                                         <div class="popular-caption">
                                             <h3><a href="product_details.html">{{ $item->name }}</a></h3>
-                                            <span>Liên hệ để biết giá</span>
+                                            <span>{{__('label.contactprice')}}</span>
                                         </div>
                                     </div>
                                 </div>

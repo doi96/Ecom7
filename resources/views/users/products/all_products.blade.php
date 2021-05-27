@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>Sản phẩm</h2>
+                                <h2>{{__('label.product')}}</h2>
                             </div>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                         <!--Nav Button  -->
                         <nav>                                                      
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <button class="btn btn-success">Tất cả sản phẩm</button> 
+                                <button class="btn btn-success">{{__('label.allproduct')}}</button> 
                             </div>
                         </nav>
                         <!--End Nav Button  -->
@@ -45,7 +45,7 @@
                                         <div class="popular-img">
                                             <img src="{{ asset('images/front_images/product/small/'.$item->image) }}" alt="">
                                             <div class="img-cap">
-                                                <span>Liên hệ để biết giá</span>
+                                                <a href="{{ route('user.product.detail',$item->id) }}"><span>{{__('label.viewdetail')}}</span></a>
                                             </div>
                                             <div class="favorit-items">
                                                 <span class="flaticon-heart"></span>
@@ -53,7 +53,7 @@
                                         </div>
                                         <div class="popular-caption">
                                             <h3><a href="{{ route('user.product.detail',$item->id) }}">{{ $item->name }}</a></h3>
-                                            <span>Liên hệ để biết giá</span>
+                                            <span>{{__('label.contactprice')}}</span>
                                         </div>
                                     </div>
                                 </div>

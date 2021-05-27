@@ -68,7 +68,9 @@
                                 <td>{{ $slide->status }}</td>
                                 <td>{{ $slide->link }}</td>
                                 <td>
-                                    
+                                    <a type="button" class="btn btn-primary" href="{{ route('admin.slider.edit',$slide->id) }}">
+                                        <i class="fa fa-wrench" aria-hidden="true"></i> Edit
+                                    </a>
                                     <button class="btn btn-danger" href="#" data-toggle="modal" data-target="#deleteModal-{{$slide->id}}">
                                         <i class="fa fa-trash" aria-hidden="true"></i> Delete
                                     </button>

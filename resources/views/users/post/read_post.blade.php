@@ -9,11 +9,11 @@
                     <div class="hero-cap text-center">
                         <h2>
                             @if ($post->type=='uses')
-                            Công dụng
+                            {{__('label.uses')}}
                             @elseif ($post->type=='tutorial')
-                            Chế biến & bảo quản
+                            {{__('label.processingandpreserving')}}
                             @elseif ($post->type=='orther')
-                            Bài viết khác
+                            {{__('label.orther')}}
                             @elseif ($post->type=='news')
                             News
                             @endif
@@ -45,7 +45,7 @@
                                     <div class="col-12">
                                         <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Thông tin</a>
+                                                <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">{{__('label.descriptionpost')}}</a>
                                             </li>
                                             @if (isset($post->video))
                                                 <li class="nav-item">
@@ -80,7 +80,7 @@
                 <div class="blog_right_sidebar">
                     @include('layouts.front_layout.search_post')
                     <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Danh mục</h4>
+                        <h4 class="widget_title">{{__('label.category')}}</h4>
                         <ul class="list cat-list">
                             <li>
                                 <a href="{{ route('user.post','news') }}" class="d-flex">
@@ -89,23 +89,23 @@
                             </li>
                             <li>
                                 <a href="{{ route('user.post','uses') }}" class="d-flex">
-                                    <p>Công dụng</p>
+                                    <p>{{__('label.uses')}}</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('user.post','tutorial') }}" class="d-flex">
-                                    <p>Chế biến & bảo quản</p>
+                                    <p>{{__('label.processingandpreserving')}}</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('user.post','orther') }}" class="d-flex">
-                                    <p>Khác</p>
+                                    <p>{{__('label.orther')}}</p>
                                 </a>
                             </li>
                         </ul>
                     </aside>
                     <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Bài viết tương tự</h4>
+                        <h4 class="widget_title">{{__('label.recommend')}}</h4>
                         <ul class="list cat-list">
                             @foreach ($samePosts as $item)
                                 <li>

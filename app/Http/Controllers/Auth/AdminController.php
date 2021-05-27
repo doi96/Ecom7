@@ -163,6 +163,53 @@ class AdminController extends Controller
         return response()->json($post);
     }
 
+    public function editSlider($id)
+    {
+        $slides = DB::table('slides')->where('id',$id)->first();
+
+        return view('admins.slides.edit_slider',compact('slides'));
+    }
+
+    public function updateSlider(Request $request,$id)
+    {
+        $request->validate([
+            'title' => 'required|max:30',
+            'description' => 'required|max:210',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'post_detail' => 'required',
+            'type_slide' => 'required'
+        ]);
+
+        $data = $request->all();
+
+        //image function
+        if (!isset($data['image'])) {
+            $getImage = DB::table('slides')->where('id',$id)->select('image')->first();
+            $imageName = $getImage->image;
+        }else {
+            //delete image slide
+            $getImageSilde = DB::table('slides')->where('id',$id)->select('image')->first();
+            if (file_exists('images/front_images/slider/'.$getImageSilde->image)) {
+                unlink('images/front_images/slider/'.$getImageSilde->image);
+            }
+
+            $imageName = time().'.'.$request->image->extension();  
+            $image_tmp = $request->file('image');
+
+            //move image to folder
+            $large_image_path = 'images/front_images/slider/'.$imageName;
+            Image::make($image_tmp)->resize(720,480)->save($large_image_path);
+        }
+
+        $status = isset($data['status'])?1:0;
+
+        $slides  = DB::table('slides')->where('id',$id)->update(['title'=>$data['title'],'description'=>$data['description'],'type'=>$data['type_slide'],'image'=>$imageName,'status'=>$status,'link'=>$data['post_detail']]);
+
+        Session::flash('success_message','Slide has been updated successfully!');
+        return redirect()->route('admin.slider');
+
+    }
+
     public function storeSlider(Request $request)
     {
         $request->validate([

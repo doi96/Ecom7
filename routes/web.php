@@ -15,43 +15,50 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Multilang Route
+Route::group(['middleware' => 'localization'], function () {
+    // User routing
 
-// User routing
+    Route::get('/','HomeController@index')->name('user.home');
+    Route::get('product-category/{id}','UserController@getProductbyCategory')->name('product.category');
+    Route::get('product-all','UserController@allProduct')->name('product.all');
+    Route::get('user-product-detail/{id}','UserController@productDetail')->name('user.product.detail');
 
-Route::get('/','HomeController@index')->name('user.home');
-Route::get('product-category/{id}','UserController@getProductbyCategory')->name('product.category');
-Route::get('product-all','UserController@allProduct')->name('product.all');
-Route::get('user-product-detail/{id}','UserController@productDetail')->name('user.product.detail');
+    // About route
+    Route::get('user-about','UserController@abouts')->name('user.about');
 
-// About route
-Route::get('user-about','UserController@abouts')->name('user.about');
+    // Post route
+    Route::get('user-post-{type}','UserController@getPost')->name('user.post');
+    Route::get('user-post-{type}-read/{id}','UserController@readPost')->name('user.post.read');
 
-// Post route
-Route::get('user-post-{type}','UserController@getPost')->name('user.post');
-Route::get('user-post-{type}-read/{id}','UserController@readPost')->name('user.post.read');
+    // Search post
+    Route::match(['get','post'],'user-search-post','UserController@searchPost')->name('user.search.post');
 
-// Search post
-Route::match(['get','post'],'user-search-post','UserController@searchPost')->name('user.search.post');
+    // Search product
+    Route::match(['get','post'],'user-search-product','UserController@searchProduct')->name('user.search.product');
 
-// Search product
-Route::match(['get','post'],'user-search-product','UserController@searchProduct')->name('user.search.product');
+    // Distribution route
+    Route::get('user-distributor-list','UserController@viewDistributor')->name('user.distributor');
 
-// Distribution route
-Route::get('user-distributor-list','UserController@viewDistributor')->name('user.distributor');
+    Route::get('user-distribution-list','UserController@viewDistribution')->name('user.distribution');
+    Route::match(['get','post'],'user-distributor-search','UserController@searchDistributor')->name('user.distributor.search');
 
-Route::get('user-distribution-list','UserController@viewDistribution')->name('user.distribution');
-Route::match(['get','post'],'user-distributor-search','UserController@searchDistributor')->name('user.distributor.search');
+    //Send Mail contact
+    Route::get('user-contact','ContactController@contact')->name('user.contact');
+    Route::post('user-contact-sendmail', 'ContactController@contactPost')->name('user.contactPost');
 
-//Send Mail contact
-Route::get('user-contact','ContactController@contact')->name('user.contact');
-Route::post('user-contact-sendmail', 'ContactController@contactPost')->name('user.contactPost');
+    //view tracea
+    Route::get('user-traceability-view/{id}','UserController@traceability')->name('user.tracea');
 
-//view tracea
-Route::get('user-traceability-view/{id}','UserController@traceability')->name('user.tracea');
+    Route::post('user-traceability-search','UserController@searchTracea')->name('user.tracea.search');
+    Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('change-language');
 
-Route::post('user-traceability-search','UserController@searchTracea')->name('user.tracea.search');
+});
+
+Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('change-language');
 
 Auth::routes();
+
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
@@ -82,7 +89,8 @@ Route::prefix('admin')->group(function() {
         Route::get('admin-slider','Auth\AdminController@slider')->name('admin.slider');
         Route::get('admin-slider-create','Auth\AdminController@createSlider')->name('admin.slider.create');
         Route::post('admin-slider-store','Auth\AdminController@storeSlider')->name('admin.slider.store');
-        Route::post('admin-slider-edit/{id}','Auth\AdminController@editSlider')->name('admin.slider.edit');
+        Route::get('admin-slider-edit/{id}','Auth\AdminController@editSlider')->name('admin.slider.edit');
+        Route::post('admin-slider-update/{id}','Auth\AdminController@updateSlider')->name('admin.slider.update');
         Route::get('admin-slider-delete/{id}','Auth\AdminController@deleteSlider')->name('admin.slider.delete');
         Route::GET('admin-slider-getType/{style}','Auth\AdminController@getTypeSlide')->name('admin.slider.getType');
 

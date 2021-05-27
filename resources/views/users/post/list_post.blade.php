@@ -10,16 +10,16 @@
                         <h2>
                             @if (!isset($value) && isset($type))
                                 @if ($type=='uses')
-                                Công dụng
+                                {{__('label.uses')}}
                                 @elseif ($type=='tutorial')
-                                Chế biến & bảo quản
+                                {{__('label.processingandpreserving')}}
                                 @elseif ($type=='orther')
-                                Bài viết khác
+                                {{__('label.orther')}}
                                 @elseif ($type=='news')
                                 News
                                 @endif
                             @else
-                                Kết quả tìm kiếm 
+                                {{__('label.searchresult')}} 
                             @endif
                         </h2>
                     </div>
@@ -48,7 +48,7 @@
                                     <p class="date">{{ $post->created_at }} </p>
                                     <ul>
                                         <div class="hero__btn" data-animation="fadeInLeft" data-delay=".4s" data-duration="100ms" style="animation-delay: 0.4s;">
-                                            <a href="{{ route('user.post.read',[$post->type,$post->id]) }}" class="btn hero-btn">Xem ngay</a>
+                                            <a href="{{ route('user.post.read',[$post->type,$post->id]) }}" class="btn hero-btn">{{__('label.readnow')}}</a>
                                         </div>
                                     </ul>
                                 </div>
@@ -61,7 +61,7 @@
                             </ul>
                         </nav>
                     @else
-                        Hiện tại chưa có bài viết nào!
+                        {{__('label.notpost')}}
                     @endif
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 <div class="blog_right_sidebar">
                     @include('layouts.front_layout.search_post')
                     <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Danh mục</h4>
+                        <h4 class="widget_title">{{__('label.category')}}</h4>
                         <ul class="list cat-list">
                             <li>
                                 <a href="{{ route('user.post','news') }}" class="d-flex">
@@ -78,17 +78,17 @@
                             </li>
                             <li>
                                 <a href="{{ route('user.post','uses') }}" class="d-flex">
-                                    <p>Công dụng</p>
+                                    <p>{{__('label.uses')}}</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('user.post','tutorial') }}" class="d-flex">
-                                    <p>Chế biến & bảo quản</p>
+                                    <p>{{__('label.processingandpreserving')}}</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('user.post','orther') }}" class="d-flex">
-                                    <p>Khác</p>
+                                    <p>{{__('label.orther')}}</p>
                                 </a>
                             </li>
                         </ul>

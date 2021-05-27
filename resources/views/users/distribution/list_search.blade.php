@@ -8,7 +8,7 @@
                 <div class="col-xl-12">
                     <div class="hero-cap text-center">
                         <h2>
-                            Nhà phân phối
+                            {{__('label.DistributorList')}}
                         </h2>
                     </div>
                 </div>
@@ -30,8 +30,8 @@
                                         <a class="d-inline-block" href="#">
                                             <h2>{{$i}}. {{ $item->name }}</h2>
                                         </a>
-                                        <h3 class="date">Địa chỉ:  <span style="color: green">{{ $item->address }} </span></h3>
-                                        <h5 class="date">Số điện thoại: <span style="color: green">{{ $item->phone }}</span> </h5>
+                                        <h3 class="date">{{__('label.address')}}:  <span style="color: green">{{ $item->address }} </span></h3>
+                                        <h5 class="date">{{__('label.phone')}}: <span style="color: green">{{ $item->phone }}</span> </h5>
                                         <ul>
                                             <h5 class="date">Website: <span style="color: green">{{ $item->website }} </span></h5>
                                         </ul>
