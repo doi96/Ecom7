@@ -83,6 +83,8 @@
                         </div>
                     </div>
                 </div>
+                <!--Div where the WhatsApp will be rendered-->  
+                <div id="WAButton"></div>  
                 <!-- Footer bottom -->
                 <div class="row align-items-center">
                     <div class="col-xl-7 col-lg-8 col-md-7">
@@ -92,14 +94,15 @@
                     </div>
                     <div class="col-xl-5 col-lg-4 col-md-5">
                         <div class="footer-copy-right f-right">
-                            <!-- social -->
+                            <p>Các kênh phân phối</p>
                             <div class="footer-social">
-                                <a href="https://gcapvn.trustpass.alibaba.com/company_profile.html"><img src="{{ asset('alibaba.png') }}"></a>
-                                <a href="https://www.facebook.com/Gcapvn/"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-amazon"></i></a>
-                                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                                <a href="https://shopee.vn/gcapvn"><img src="{{ asset('shopee-bw.png') }}" style="width: 15px; margin-bottom: 3px; margin-left: 5px"></a>
-                                <a href="https://shopee.vn/gcapvn"><img src="{{ asset('shopee-bw.png') }}" style="width: 15px; margin-bottom: 3px; margin-left: 5px"></a>
+                                <a href="https://gcapvn.trustpass.alibaba.com/company_profile.html"><img src="{{ asset('logo/alibaba.png') }}" style="width: 45px; margin-bottom: 3px; margin-left: 5px"></a>
+                                <a href="#"><img src="{{ asset('logo/amzon.png') }}" style="width: 45px; margin-bottom: 3px; margin-left: 5px"></a>
+                                <a href="#"><img src="{{ asset('logo/shopee.png') }}" style="width: 45px; margin-bottom: 3px; margin-left: 5px"></a>
+                                <a href="#"><img src="{{ asset('logo/tiki.png') }}" style="width: 45px; margin-bottom: 3px; margin-left: 5px"></a>
+                                <a href="#"><img src="{{ asset('logo/lazada.png') }}" style="width: 45px; margin-bottom: 3px; margin-left: 5px"></a>
+                                <a href="#"><img src="{{ asset('logo/go.png') }}" style="width: 45px; margin-bottom: 3px; margin-left: 5px"></a>
+                                <a href="#"><img src="{{ asset('logo/vinmart.png') }}" style="width: 45px; margin-bottom: 3px; margin-left: 5px"></a>
                             </div>
                         </div>
                     </div>

@@ -3,6 +3,7 @@
 use App\Mail\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,6 +115,13 @@ Route::prefix('admin')->group(function() {
         Route::post('admin-distribution-policy-update/{id}','Auth\AdminController@updatePolicy')->name('admin.distribution.policy.update');
         Route::get('admin-distribution-policy-edit/{id}','Auth\AdminController@editPolicy')->name('admin.distribution.policy.edit');
 
+        //Truy xuat thong tin
+        // Route::get('admin-importuser','TraceabilityController@import')->name('admin.traceability.importuser');
+        Route::post('import', 'TraceabilityController@import')->name('import');
+        Route::get('importExportView', 'TraceabilityController@importExportView');
+        Route::get('qr-code', function () {
+        return QrCode::size(500)->generate(route('user.product.detail',4));
+        });
     });
 
 });
