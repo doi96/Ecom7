@@ -19,6 +19,7 @@
 <section class="blog_area section-padding">
     <div class="container">
         <div class="row">
+            @if($trace!=null)
             <div class="col-lg-8 mb-5 mb-lg-0">
                 <div class="blog_left_sidebar">
                    <div class="tab-content ml-1" id="myTabContent">
@@ -105,19 +106,22 @@
 
                 </div>
             </div>
+            @else
+            <div class="col-lg-8 mb-5 mb-lg-0">
+            <p>Mã sản phẩm (hoặc mã truy xuất) không phù hợp! / Product code (or Traceability code) does not match!</p>
+            </div>
+            @endif
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
                     @include('layouts.front_layout.search_tracea')
+                    @if($trace!=null)
                     <aside class="single_sidebar_widget post_category_widget">
                         <h4 class="widget_title">QR Code</h4>
-<<<<<<< HEAD
-                        <ul class="list cat-list">
-=======
                         <ul class="list cat-list text-center">
->>>>>>> add search tracea function
                             {!! QrCode::size(300)->generate(route('user.tracea',$trace->id)); !!}
                         </ul>
                     </aside>
+                    @endif
                 </div>
             </div>
         </div>

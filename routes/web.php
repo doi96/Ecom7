@@ -49,6 +49,8 @@ Route::post('user-contact-sendmail', 'ContactController@contactPost')->name('use
 //view tracea
 Route::get('user-traceability-view/{id}','UserController@traceability')->name('user.tracea');
 
+Route::post('user-traceability-search','UserController@searchTracea')->name('user.tracea.search');
+
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');

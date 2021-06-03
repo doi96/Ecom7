@@ -1,5 +1,6 @@
 <aside class="single_sidebar_widget search_widget">
-    <form action="{{ route('user.search.post') }}" method="POST">@csrf
+
+    <form action="{{ route('user.tracea.search') }}" method="POST">@csrf
         <div class="form-group">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" name="search" placeholder="Nhập mã sản phẩm" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập mã sản phẩm'">
