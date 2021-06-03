@@ -46,6 +46,9 @@ Route::match(['get','post'],'user-distributor-search','UserController@searchDist
 Route::get('user-contact','ContactController@contact')->name('user.contact');
 Route::post('user-contact-sendmail', 'ContactController@contactPost')->name('user.contactPost');
 
+//view tracea
+Route::get('user-traceability-view/{id}','UserController@traceability')->name('user.tracea');
+
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -116,12 +119,16 @@ Route::prefix('admin')->group(function() {
         Route::get('admin-distribution-policy-edit/{id}','Auth\AdminController@editPolicy')->name('admin.distribution.policy.edit');
 
         //Truy xuat thong tin
-        // Route::get('admin-importuser','TraceabilityController@import')->name('admin.traceability.importuser');
-        Route::post('import', 'TraceabilityController@import')->name('import');
-        Route::get('importExportView', 'TraceabilityController@importExportView');
-        Route::get('qr-code', function () {
-        return QrCode::size(500)->generate(route('user.product.detail',4));
-        });
+        Route::get('admin-tracea-index','TraceabilityController@index')->name('admin.tracea.index');
+        Route::get('admin-tracea-create','TraceabilityController@create')->name('admin.tracea.create');
+        Route::get('admin-tracea-delete/{id}','TraceabilityController@delete')->name('admin.tracea.delete');
+        Route::post('admin-tracea-store','TraceabilityController@store')->name('admin.tracea.store');
+
+        // Route::post('import', 'TraceabilityController@import')->name('import');
+        // Route::get('importExportView', 'TraceabilityController@importExportView');
+        // Route::get('qr-code', function () {
+        // return QrCode::size(500)->generate(route('user.product.detail',4));
+        // });
     });
 
 });

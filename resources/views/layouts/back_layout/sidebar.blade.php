@@ -59,6 +59,20 @@
         </div>
     </li>
     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTraceability"
+            aria-expanded="true" aria-controls="collapseTraceability">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Traceability</span>
+        </a>
+        <div id="collapseTraceability" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{{ route('admin.tracea.index') }}">List Tracea</a>
+                <a class="collapse-item" href="{{ route('admin.post.all') }}">Add Tracea</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDistribution"
             aria-expanded="true" aria-controls="collapseDistribution">
             <i class="fa fa-home" aria-hidden="true"></i>
