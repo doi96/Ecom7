@@ -168,4 +168,17 @@ class UserController extends Controller
         
         return view('users.tracea.view_tracea',compact('trace','getCategories','meta_title','meta_description','meta_keywords'));
     }
+
+    public function searchTracea(Request $request)
+    {
+        $getCategories = Category::where('status',1)->with('products')->get();
+        $meta_title = 'GCAPVN | Truy xuất nguồn gốc | CÔNG TY TNHH GCAPVN';
+        $getAbout = Post::where('type','about')->where('status',1)->orderByDesc('created_at','desc')->first();
+        $meta_description = $getAbout->description;
+        $meta_keywords = 'GCAPVN, RONG NHO VN, RONG NHO KHANH HOA, RONG NHO TUOI, RONG NHO KHO, RONG NHO BOT, RONG NHO DONG GOI, PHAN PHOI RONG NHO';
+
+        $trace = Traceability::where('traceacode',$request->search)->first();
+        return view('users.tracea.view_search',compact('trace','getCategories','meta_title','meta_description','meta_keywords'));
+    }
+
 }
