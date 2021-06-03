@@ -7,6 +7,7 @@ use App\Distribution;
 use App\Post;
 use App\Product;
 use App\ReturnPolicy;
+use App\Traceability;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -154,5 +155,17 @@ class UserController extends Controller
         $meta_keywords = 'GCAPVN, RONG NHO VN, RONG NHO KHANH HOA, RONG NHO TUOI, RONG NHO KHO, RONG NHO BOT, RONG NHO DONG GOI, PHAN PHOI RONG NHO';
 
         return view('users.distribution.distribution_policy')->with(compact('getCategories','distri_infor','distri_shipping','distri_commit','distri_return','meta_title','meta_description','meta_keywords'));
+    }
+
+    public function traceability($id)
+    {
+        $trace = Traceability::where('id',$id)->first();
+        $getCategories = Category::where('status',1)->with('products')->get();
+        $meta_title = 'GCAPVN | Truy xuất nguồn gốc | CÔNG TY TNHH GCAPVN';
+        $getAbout = Post::where('type','about')->where('status',1)->orderByDesc('created_at','desc')->first();
+        $meta_description = $getAbout->description;
+        $meta_keywords = 'GCAPVN, RONG NHO VN, RONG NHO KHANH HOA, RONG NHO TUOI, RONG NHO KHO, RONG NHO BOT, RONG NHO DONG GOI, PHAN PHOI RONG NHO';
+        
+        return view('users.tracea.view_tracea',compact('trace','getCategories','meta_title','meta_description','meta_keywords'));
     }
 }
