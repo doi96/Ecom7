@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('css/front_css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('css/front_css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('css/front_css/style.css') }}">
+    
 </head>
 
 <body>
@@ -88,7 +89,7 @@
     <!-- Jquery Plugins, main Jquery -->	
     <script src="{{ asset('js/front_js/plugins.js') }}"></script>
     <script src="{{ asset('js/front_js/main.js') }}"></script>
-
+    
     
 
 </body>
