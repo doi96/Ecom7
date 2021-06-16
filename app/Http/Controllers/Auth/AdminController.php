@@ -198,7 +198,7 @@ class AdminController extends Controller
 
             //move image to folder
             $large_image_path = 'images/front_images/slider/'.$imageName;
-            Image::make($image_tmp)->resize(720,480)->save($large_image_path);
+            Image::make($image_tmp)->resize(900,500)->save($large_image_path);
         }
 
         $status = isset($data['status'])?1:0;

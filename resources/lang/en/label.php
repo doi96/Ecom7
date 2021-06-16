@@ -69,5 +69,8 @@
       'tracea' => 'Traceability',
       'productcode' =>'Enter Product or Traceability code...',
       'distributorchanel' => 'Distribution channel',
+      'confi' => 'Certifications & Copyright',
+      'certi' => 'Certifications',
+      'copyright' => 'Copyright',
 
   ];

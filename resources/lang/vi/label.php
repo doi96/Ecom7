@@ -70,6 +70,8 @@
       'tracea' => 'Truy xuất nguồn gốc',
       'productcode' =>'Nhập mã sản phẩm hoặc mã truy xuất...',
       'distributorchanel' => 'Kênh phân phối',
-
+      'confi' => 'Giấy chứng nhận & Bản quyền',
+      'copyright' => 'Bản quyền',
+      'certification' => 'Giấy chứng nhận',
 
   ];

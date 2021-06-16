@@ -110,11 +110,7 @@
                     @include('layouts.front_layout.search_tracea')
                     <aside class="single_sidebar_widget post_category_widget">
                         <h4 class="widget_title">QR Code</h4>
-<<<<<<< HEAD
-                        <ul class="list cat-list">
-=======
                         <ul class="list cat-list text-center">
->>>>>>> add search tracea function
                             {!! QrCode::size(300)->generate(route('user.tracea',$trace->id)); !!}
                         </ul>
                     </aside>

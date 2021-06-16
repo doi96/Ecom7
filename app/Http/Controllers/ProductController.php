@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use phpDocumentor\Reflection\Types\Null_;
 use Intervention\Image\Facades\Image;
+use App\ProductImage;
 
 class ProductController extends Controller
 {
@@ -177,6 +177,60 @@ class ProductController extends Controller
         Session::flash('success_message','Product has been deleted successfully!');
 
         return back();
+    }
+
+    public function productImage($id)
+    {
+      $images = ProductImage::where('product_id',$id)->get();
+      return view('admins.products.add_product_image',compact('id','images'));
+    }
+
+    public function storeProductImage(Request $request)
+    {
+        $request->validate([
+          'files' => 'required',
+        ]);
+
+        if ($request->hasfile('files')) {
+          $files = $request->file('files');
+
+          foreach($files as $file) {
+
+            if ($file->extension()=='png' || $file->extension()=='jpg') {
+              $name = time().$file->getClientOriginalName();
+              $path = 'images/front_images/product_image/';
+
+              Image::make($file)->resize(720,720)->save($path.$name);
+
+              ProductImage::create([
+                  'product_id' => $request->product_id,
+                  'name' => $name,
+                  'path' => $path
+                ]);
+
+            }else{
+
+              return back()->with('error', 'Only support file PNG or JPG');
+
+            }
+            
+            }
+
+            return back()->with('success', 'Files uploaded successfully');
+         }
+        
+    }
+
+    public function deleteProductImage($id)
+    {
+        $image = ProductImage::where('id',$id)->first();
+
+        if (file_exists('images/front_images/product_image/'.$image->name)) {
+            unlink('images/front_images/product_image/'.$image->name);
+        }
+        $image = ProductImage::where('id',$id)->delete();
+
+        return back()->with('success','Product Image has been deleted successfully!');
     }
 
 }

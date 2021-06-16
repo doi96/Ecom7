@@ -16,6 +16,7 @@
                                     <li><a href="#">{{ __('label.aboutGCAPVN') }}</a>
                                         <ul class="submenu">
                                             <li><a href="{{ route('user.about') }}">{{ __('label.about') }}</a></li>
+                                            <li><a href="{{ route('user.legal.view') }}">{{ __('label.confi') }}</a></li>
                                             <li><a href="{{ route('user.distribution') }}">{{ __('label.distributionPolicy') }}</a></li>
                                             <li><a href="{{ route('user.distributor') }}">{{ __('label.DistributorList') }}</a></li>
                                         </ul>
@@ -36,12 +37,7 @@
                                         </ul>
                                     </li>
                                     <li><a href="{{ route('user.contact') }}">{{__('label.contact')}}</a></li>
-                                    <li><a href="#">{{__('label.language')}}</a>
-                                        <ul class="submenu">
-                                            <li><a href="{!! route('change-language', ['en']) !!}">English</a></li>
-                                            <li><a href="{!! route('change-language', ['vi']) !!}">Tiếng Việt</a></li>
-                                        </ul>
-                                    </li>
+                                    
                                 </ul>
                             </nav>
                         </div>
@@ -54,6 +50,8 @@
                                         <span class="flaticon-search"></span>
                                     </div>
                                 </li>
+                                <li style="margin-right: 10px;"><a href="{!! route('change-language', ['en']) !!}"><img src="{{ asset('icon/united-kingdom.png') }}"> En</a></li>
+                                <li><a href="{!! route('change-language', ['vi']) !!}"><img src="{{ asset('icon/vietnam.png') }}">  Vi</a></li>
                             </ul>
                         </div>
                         

@@ -53,6 +53,10 @@ Route::group(['middleware' => 'localization'], function () {
     Route::post('user-traceability-search','UserController@searchTracea')->name('user.tracea.search');
     Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('change-language');
 
+    // view legal
+    Route::get('user-lega-view','UserController@legal')->name('user.legal.view');
+
+
 });
 
 Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('change-language');
@@ -134,6 +138,16 @@ Route::prefix('admin')->group(function() {
         Route::get('admin-tracea-delete/{id}','TraceabilityController@delete')->name('admin.tracea.delete');
         Route::post('admin-tracea-store','TraceabilityController@store')->name('admin.tracea.store');
 
+        //Product Image route
+        Route::get('admin-product-image/{id}', 'ProductController@productImage')->name('admin.product.image.add');
+        Route::get('admin-product-image-delete/{id}', 'ProductController@deleteProductImage')->name('admin.product.image.delete');
+        Route::post('admin-product-image/', 'ProductController@storeProductImage')->name('admin.product.image.store');
+
+        //Certification
+        Route::get('admin-legal-index', 'LegalImageController@index')->name('admin.legal.index');
+        Route::post('admin-legal-store', 'LegalImageController@store')->name('admin.legal.store');
+        Route::get('admin-legal-delete/{id}', 'LegalImageController@delete')->name('admin.legal.delete');
+        
         // Route::post('import', 'TraceabilityController@import')->name('import');
         // Route::get('importExportView', 'TraceabilityController@importExportView');
         // Route::get('qr-code', function () {

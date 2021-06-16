@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('css/front_css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/front_css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/front_css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/front_css/slick-theme.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/front_css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('css/front_css/style.css') }}">
     
@@ -89,8 +90,46 @@
     <!-- Jquery Plugins, main Jquery -->	
     <script src="{{ asset('js/front_js/plugins.js') }}"></script>
     <script src="{{ asset('js/front_js/main.js') }}"></script>
+    <script src="{{ asset('js/front_js/js-image-zoom.js') }}"></script>
     
-    
+    <script type="text/javascript">
+            $(document).on('ready', function() {
+             $('.slider-for').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.slider-nav'
+                });
+                $('.slider-nav').slick({
+                slidesToShow: 3,
+                slideToScroll: 1,
+                asNavFor: '.slider-for',
+                dots: false,
+                centerMode: true,
+                focusOnSelect: true
+                });
+            });
+    </script>
+
+    <script>
+    var options = {
+        width: 400,
+        zoomWidth: 500,
+        offset: {vertical: 0, horizontal: 10}
+    };
+    new ImageZoom(document.getElementById("img-container"), options);
+ 
+    </script>
+    <script>
+    var options = {
+        width: 400,
+        zoomWidth: 500,
+        offset: {vertical: 0, horizontal: 10}
+    };
+    new ImageZoom(document.getElementById("img-container1"), options);
+ 
+    </script>
 
 </body>
 </html>

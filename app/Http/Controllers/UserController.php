@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Distribution;
+use App\LegalImage;
 use App\Post;
 use App\Product;
+use App\ProductImage;
 use App\ReturnPolicy;
 use App\Traceability;
 use Illuminate\Http\Request;
@@ -33,8 +35,8 @@ class UserController extends Controller
     public function productDetail($id)
     {
         $getCategories = Category::where('status',1)->with('products')->get();
-        $product = Product::where('id',$id)->where('status',1)->first();
-
+        $product = Product::where('id',$id)->where('status',1)->with('productImages')->first();
+        // dd($product);
         $meta_title = 'GCAPVN | Chi tiết sản phẩm | CÔNG TY TNHH GCAPVN';
         $meta_description = $product->description;
         $meta_keywords = 'GCAPVN, RONG NHO VN, RONG NHO KHANH HOA, RONG NHO TUOI, RONG NHO KHO, RONG NHO BOT, RONG NHO DONG GOI,'.$product->name;
@@ -179,6 +181,20 @@ class UserController extends Controller
 
         $trace = Traceability::where('traceacode',$request->search)->first();
         return view('users.tracea.view_search',compact('trace','getCategories','meta_title','meta_description','meta_keywords'));
+    }
+
+    public function legal()
+    {
+        $getCategories = Category::where('status',1)->with('products')->get();
+        $meta_title = 'GCAPVN | Chứng nhận và Bản quyền | CÔNG TY TNHH GCAPVN';
+        $getAbout = Post::where('type','about')->where('status',1)->orderByDesc('created_at','desc')->first();
+        $meta_description = $getAbout->description;
+        $meta_keywords = 'GCAPVN, RONG NHO VN, RONG NHO KHANH HOA, RONG NHO TUOI, RONG NHO KHO, RONG NHO BOT, RONG NHO DONG GOI, PHAN PHOI RONG NHO';
+
+        $legal_copyright = LegalImage::where('type',1)->get();
+        $legal_certi = LegalImage::where('type',2)->get();
+
+        return view('users.legal.view_legal',compact('legal_copyright','legal_certi','getCategories','meta_title','meta_keywords','meta_description'));
     }
 
 }

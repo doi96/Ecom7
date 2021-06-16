@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('css/front_css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/front_css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/front_css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/front_css/slick-theme.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/front_css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('css/front_css/style.css') }}">
     
@@ -55,7 +56,7 @@
                         <div class="single-slider slider-height d-flex align-items-center slide-bg">
                                 <div class="container">
                                     <div class="row justify-content-between align-items-center">
-                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
                                             <div class="hero__caption">
                                                 <h1 data-animation="fadeInLeft" data-delay=".2s" data-duration="100ms">{{ $slide->title }}</h1>
                                                 <p data-animation="fadeInLeft" data-delay=".4s" data-duration="100ms">{{ $slide->description }}</p>
@@ -71,12 +72,20 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
+                                        {{-- <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 d-none d-sm-block"> --}}
+                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 d-sm-block">
                                             <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                                <img src="{{ asset('images/front_images/slider/'.$slide->image) }}" alt="" class=" heartbeat">
+                                                <img style="width: 100%;" src="{{ asset('images/front_images/slider/'.$slide->image) }}" alt="" class=" heartbeat">
                                             </div>
                                         </div>
                                     </div>
+                                    {{-- <div class="carousel-item">
+                                    <img src="{{ asset('images/front_images/slider/'.$slide->image) }}" alt="" class=" heartbeat">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>{{ $slide->title }}</h5>
+                                        <p>{{ $slide->description }}</p>
+                                    </div>
+                                    </div> --}}
                                 </div>
                         </div>
                     @endforeach
@@ -323,14 +332,39 @@
     <script type="text/javascript">
             $(document).on('ready', function() {
             $(".footer_slider").slick({
-                dots: false,
+                dots: true,
                 infinite: true,
                 centerMode: true,
-                slidesToShow: 3,
-                slidesToScroll: 1,
+                slidesToShow: 5,
+                slidesToScroll: 2,
                 autoplay: true,
                 autoplaySpeed: 1000,
-                arrows: false,
+                arrows: true,
+                responsive: [
+                            {
+                                breakpoint: 1024,
+                                settings: {
+                                    slidesToShow: 2,
+                                    slidesToScroll: 2,
+                                }
+                            },
+                            {
+                                breakpoint: 600,
+                                settings: {
+                                    slidesToShow: 2,
+                                    slidesToScroll: 1
+                                }
+                            },
+                            {
+                                breakpoint: 480,
+                                settings: {
+                                    slidesToShow: 1,
+                                    slidesToScroll: 1
+                                }
+                            }
+
+                    ]
+                
             });
             });
     </script>

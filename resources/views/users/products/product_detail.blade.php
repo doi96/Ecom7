@@ -22,7 +22,27 @@
             <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-center">
-                    <img src="{{ asset('images/front_images/product/medium/'.$product->image) }}" alt="#" class="img-fluid">
+                   
+                    <div class="slider-for justify-content-center">
+                            <div class="text-center" id="img-container">
+                                 <img style="width: 360px" src="{{ asset('images/front_images/product/large/'.$product->image) }}" >
+                            </div>
+                        @foreach ($product->productImages as $image)
+                            <div class="text-center" id="img-container1">
+                                <img style="width: 360px" src="{{ asset('images/front_images/product_image/'.$image->name) }}">
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="slider-nav text-center" style="width: 350px;">
+                            <div style="width: 80px;">
+                                 <img style="width: 80px" src="{{ asset('images/front_images/product/medium/'.$product->image) }}" >
+                            </div>
+                        @foreach ($product->productImages as $image)
+                            <div style="width: 80px;"> 
+                                <img style="width: 80px" src="{{ asset('images/front_images/product_image/'.$image->name) }}">
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="row">
@@ -40,7 +60,7 @@
                             <div class="tab-content ml-1" id="myTabContent">
                                 <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
                                     <div class="row">
-                                        <div class="col-md-8 col-6">
+                                        <div class="col-md-12 col-6">
                                             <p>{!! $product->description !!}</p>
                                         </div>
                                     </div>
@@ -60,6 +80,7 @@
                 <hr>
                 <br>
             </div>
+
             </div>
         </div>
         <!--================End Single Product Area =================-->

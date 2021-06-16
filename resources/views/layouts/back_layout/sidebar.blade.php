@@ -88,6 +88,20 @@
             </div>
         </div>
     </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLegal"
+            aria-expanded="true" aria-controls="collapseLegal">
+            <i class="fa fa-gavel" aria-hidden="true"></i>
+            <span>Legal</span>
+        </a>
+        <div id="collapseLegal" class="collapse" aria-labelledby="headingLegal"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Legal image:</h6>
+                <a class="collapse-item" href="{{ route('admin.legal.index') }}">Legal Image</a>
+            </div>
+        </div>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
